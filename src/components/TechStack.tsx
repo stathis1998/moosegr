@@ -14,7 +14,7 @@ import awsLogo from "@/assets/logos/aws.svg";
 import stripeLogo from "@/assets/logos/stripe_simple.svg";
 
 const logoClass =
-  "h-8 w-auto sm:h-10 lg:h-12 border border-gray-200 rounded p-0.5 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
+  "size-[88px] object-contain border border-gray-200 rounded p-0.5 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
 
 export function TechStack() {
   return (
@@ -36,7 +36,7 @@ export function TechStack() {
         </p>
       </div>
 
-      <div className="grid grid-cols-[repeat(7,auto)] justify-center gap-2 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-[repeat(3,88px)] sm:grid-cols-[repeat(5,88px)] lg:grid-cols-[repeat(7,88px)] justify-center gap-2 sm:gap-6 lg:gap-8">
         <img src={figmaLogo} alt="Figma" className={logoClass} />
         <img src={typescriptLogo} alt="TypeScript" className={logoClass} />
         <img src={reactLogo} alt="React" className={logoClass} />
