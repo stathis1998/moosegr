@@ -14,7 +14,7 @@ import awsLogo from "@/assets/logos/aws.svg";
 import stripeLogo from "@/assets/logos/stripe_simple.svg";
 
 const logoClass =
-  "size-[88px] object-contain border border-gray-200 rounded p-0.5 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
+  "size-[88px] object-contain border border-gray-200 rounded-[12px] p-3 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
 
 export function TechStack() {
   return (
