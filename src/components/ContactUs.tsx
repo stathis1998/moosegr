@@ -34,7 +34,7 @@ export function ContactUs() {
     formData.append("subject", "New contact request from the website");
     formData.append(
       "name",
-      `${formData.get("firstName") ?? ""} ${formData.get("lastName") ?? ""}`.trim()
+      `${formData.get("firstName") ?? ""} ${formData.get("lastName") ?? ""}`.trim(),
     );
 
     try {
@@ -47,7 +47,7 @@ export function ContactUs() {
       if (data.success) {
         setStatus("success");
         setFeedback(
-          "Thanks for reaching out! Your message has been sent — we'll get back to you shortly."
+          "Thanks for reaching out! Your message has been sent — we'll get back to you shortly.",
         );
         form.reset();
         setAgreed(false);
@@ -58,7 +58,7 @@ export function ContactUs() {
     } catch {
       setStatus("error");
       setFeedback(
-        "Couldn't reach the server. Please try again or email us directly."
+        "Couldn't reach the server. Please try again or email us directly.",
       );
     }
   };
@@ -127,13 +127,17 @@ export function ContactUs() {
           </div>
         </div>
 
-        <form id="contact-form" onSubmit={onSubmit}>
+        <form
+          id="contact-form"
+          onSubmit={onSubmit}
+          className="lg:bg-[#FAFAFA] lg:rounded-2xl lg:p-8"
+        >
           <FieldSet>
             <FieldGroup>
               <div className="grid gap-7 sm:grid-cols-2 sm:gap-6">
                 <Field>
                   <FieldLabel htmlFor="firstName">
-                    <span>
+                    <span className="font-medium">
                       First name <span className="text-[#079455]">*</span>
                     </span>
                   </FieldLabel>
@@ -143,11 +147,12 @@ export function ContactUs() {
                     required
                     autoComplete="given-name"
                     placeholder="First name"
+                    className="bg-white"
                   />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="lastName">
-                    <span>
+                    <span className="font-medium">
                       Last name <span className="text-[#079455]">*</span>
                     </span>
                   </FieldLabel>
@@ -157,12 +162,13 @@ export function ContactUs() {
                     required
                     autoComplete="family-name"
                     placeholder="Last name"
+                    className="bg-white"
                   />
                 </Field>
               </div>
               <Field>
                 <FieldLabel htmlFor="email">
-                  <span>
+                  <span className="font-medium">
                     Email <span className="text-[#079455]">*</span>
                   </span>
                 </FieldLabel>
@@ -173,11 +179,12 @@ export function ContactUs() {
                   required
                   autoComplete="email"
                   placeholder="Email"
+                  className="bg-white"
                 />
               </Field>
               <Field>
                 <FieldLabel htmlFor="message">
-                  <span>
+                  <span className="font-medium">
                     Message <span className="text-[#079455]">*</span>
                   </span>
                 </FieldLabel>
@@ -187,7 +194,7 @@ export function ContactUs() {
                   required
                   autoComplete="off"
                   placeholder="Leave us a message..."
-                  className="min-h-32"
+                  className="min-h-32 bg-white"
                 />
               </Field>
               <Field orientation="horizontal">

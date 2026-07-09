@@ -1,12 +1,11 @@
-import odeaoLabsLogo from "@/assets/logos/odeaolabs.svg";
-import kintsugiLogo from "@/assets/logos/kintsugi.svg";
-import stackedLogo from "@/assets/logos/stackedlab.svg";
-import mangoliaLogo from "@/assets/logos/magnolia.svg";
-import warpspeedLogo from "@/assets/logos/warpspeed.svg";
-import sisyphusLogo from "@/assets/logos/sisyphus.svg";
+import iconstormLogo from "@/assets/iconstorm-logo.svg";
+import kyklomaLogo from "@/assets/kykloma-logo.svg";
+import primeNavLogo from "@/assets/prime-nav-logo.svg";
+import vetLogo from "@/assets/vet-logo.svg";
+import fantasiaLogo from "@/assets/fantasia-logo.svg";
 
 const logoClass =
-  "grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
+  "h-12 w-auto max-w-full object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
 
 export function SocialProof() {
   return (
@@ -16,13 +15,12 @@ export function SocialProof() {
           Join the businesses that trusted us.
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-8 place-items-center">
-          <img src={odeaoLabsLogo} alt="Odeao Labs" className={logoClass} />
-          <img src={kintsugiLogo} alt="Kintsugi" className={logoClass} />
-          <img src={stackedLogo} alt="Stacked Lab" className={logoClass} />
-          <img src={mangoliaLogo} alt="Mangolia" className={logoClass} />
-          <img src={warpspeedLogo} alt="Warpspeed" className={logoClass} />
-          <img src={sisyphusLogo} alt="Sisyphus" className={logoClass} />
+        <div className="flex flex-wrap items-center justify-center gap-4 lg:gap-8">
+          <img src={iconstormLogo} alt="Iconstorm" className={logoClass} />
+          <img src={kyklomaLogo} alt="Kykloma" className={logoClass} />
+          <img src={primeNavLogo} alt="Prime Nav" className={logoClass} />
+          <img src={vetLogo} alt="Vet" className={logoClass} />
+          <img src={fantasiaLogo} alt="Fantasia" className={logoClass} />
         </div>
       </div>
     </section>

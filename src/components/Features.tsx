@@ -1,4 +1,10 @@
-import { ArrowRight, Check, CodeBrowser } from "@untitledui/icons";
+import {
+  ArrowRight,
+  Check,
+  CodeBrowser,
+  ShoppingBag02,
+  Users01,
+} from "@untitledui/icons";
 
 import womanOnScreen from "@/assets/woman-on-screen.jpg";
 import shopifyLaptop from "@/assets/shopify-laptop.jpg";
@@ -57,7 +63,7 @@ function FeatureItem({
         </div>
       </div>
       <div className={reverse ? "lg:order-1" : ""}>
-        <img src={image} alt={altImage} className="w-full lg:rounded-2xl" />
+        <img src={image} alt={altImage} className="w-full" />
       </div>
     </div>
   );
@@ -114,7 +120,7 @@ export function Features({
         ]}
         image={shopifyLaptop}
         altImage="shopify-laptop"
-        icon={<CodeBrowser color="#0E9384" />}
+        icon={<ShoppingBag02 color="#0E9384" />}
         projectValue="ecommerce"
         onSelectProject={onSelectProject}
         reverse
@@ -130,7 +136,7 @@ export function Features({
         ]}
         image={womanCoffee}
         altImage="woman-coffee"
-        icon={<CodeBrowser color="#0E9384" />}
+        icon={<Users01 color="#0E9384" />}
         projectValue="veterinary"
         onSelectProject={onSelectProject}
       />

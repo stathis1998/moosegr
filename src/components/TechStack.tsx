@@ -14,7 +14,7 @@ import awsLogo from "@/assets/logos/aws.svg";
 import stripeLogo from "@/assets/logos/stripe_simple.svg";
 
 const logoClass =
-  "border border-gray-200 rounded p-0.5 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
+  "h-8 w-auto sm:h-10 lg:h-12 border border-gray-200 rounded p-0.5 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
 
 export function TechStack() {
   return (
@@ -36,77 +36,21 @@ export function TechStack() {
         </p>
       </div>
 
-      <div className="flex gap-8 justify-center flex-wrap lg:max-w-4xl lg:mx-auto">
-        <img
-          src={figmaLogo}
-          alt="Figma"
-          className={logoClass}
-        />
-        <img
-          src={typescriptLogo}
-          alt="TypeScript"
-          className={logoClass}
-        />
-        <img
-          src={reactLogo}
-          alt="React"
-          className={logoClass}
-        />
-        <img
-          src={nextJSLogo}
-          alt="Next.js"
-          className={logoClass}
-        />
-        <img
-          src={viteJSLogo}
-          alt="Vite.js"
-          className={logoClass}
-        />
-        <img
-          src={tailwindLogo}
-          alt="Tailwind CSS"
-          className={logoClass}
-        />
-        <img
-          src={nodejsLogo}
-          alt="Node.js"
-          className={logoClass}
-        />
-        <img
-          src={pythonLogo}
-          alt="Python"
-          className={logoClass}
-        />
-        <img
-          src={postgreSQLLogo}
-          alt="PostgreSQL"
-          className={logoClass}
-        />
-        <img
-          src={shopifyLogo}
-          alt="Shopify"
-          className={logoClass}
-        />
-        <img
-          src={dockerLogo}
-          alt="Docker"
-          className={logoClass}
-        />
-        <img
-          src={githubLogo}
-          alt="GitHub"
-          className={logoClass}
-        />
-        <img
-          src={awsLogo}
-          alt="AWS"
-          className={logoClass}
-        />
-        <img
-          src={stripeLogo}
-          alt="Stripe"
-          className={logoClass}
-        />
+      <div className="grid grid-cols-[repeat(7,auto)] justify-center gap-2 sm:gap-6 lg:gap-8">
+        <img src={figmaLogo} alt="Figma" className={logoClass} />
+        <img src={typescriptLogo} alt="TypeScript" className={logoClass} />
+        <img src={reactLogo} alt="React" className={logoClass} />
+        <img src={nextJSLogo} alt="Next.js" className={logoClass} />
+        <img src={viteJSLogo} alt="Vite.js" className={logoClass} />
+        <img src={tailwindLogo} alt="Tailwind CSS" className={logoClass} />
+        <img src={nodejsLogo} alt="Node.js" className={logoClass} />
+        <img src={pythonLogo} alt="Python" className={logoClass} />
+        <img src={postgreSQLLogo} alt="PostgreSQL" className={logoClass} />
+        <img src={shopifyLogo} alt="Shopify" className={logoClass} />
+        <img src={dockerLogo} alt="Docker" className={logoClass} />
+        <img src={githubLogo} alt="GitHub" className={logoClass} />
+        <img src={awsLogo} alt="AWS" className={logoClass} />
+        <img src={stripeLogo} alt="Stripe" className={logoClass} />
       </div>
     </section>
   );

@@ -21,7 +21,7 @@ export function App() {
   };
 
   return (
-    <>
+    <div className="max-w-360 mx-auto">
       <Hero />
       <SocialProof />
       <Features onSelectProject={selectProject} />
@@ -34,6 +34,6 @@ export function App() {
       <CTASection />
       <ContactUs />
       <Footer />
-    </>
+    </div>
   );
 }

@@ -26,10 +26,14 @@ export function Metrics() {
       className="px-4 lg:px-8 py-16 lg:py-24 bg-[#E9EAEB] scroll-mt-20"
     >
       <div className="w-full max-w-7xl mx-auto space-y-12">
-        <div className="space-y-2 text-center lg:max-w-2xl lg:mx-auto">
-          <h3 className="font-semibold text-2xl lg:text-4xl">
-            How We Bring Ideas to Life
-          </h3>
+        <div className="space-y-4 text-center lg:max-w-2xl lg:mx-auto">
+          <header className="space-y-3">
+            <h2 className="text-[#107569] font-semibold text-sm">Our Process</h2>
+
+            <h3 className="font-semibold text-2xl lg:text-4xl">
+              How We Bring Ideas to Life
+            </h3>
+          </header>
           <p className="text-[#535862] lg:text-lg">
             A transparent, streamlined approach from concept to deployment.
           </p>

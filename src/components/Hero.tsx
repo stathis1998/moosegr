@@ -48,7 +48,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative h-svh">
+    <section className="relative h-200">
       <img
         className="absolute inset-0 w-full h-full object-cover lg:hidden"
         src={backgroundHeroImageMobile}
