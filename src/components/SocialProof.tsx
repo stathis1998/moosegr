@@ -5,12 +5,24 @@ import vetLogo from "@/assets/vet-logo.svg";
 import fantasiaLogo from "@/assets/fantasia-logo.svg";
 
 import { useTranslations } from "@/lib/i18n";
+import { useCyclingHighlight } from "@/lib/useCyclingHighlight";
+
+const logos = [
+  { src: iconstormLogo, alt: "Iconstorm" },
+  { src: kyklomaLogo, alt: "Kykloma" },
+  { src: primeNavLogo, alt: "Prime Nav" },
+  { src: vetLogo, alt: "Vet" },
+  { src: fantasiaLogo, alt: "Fantasia" },
+];
+
+const HIGHLIGHT_DURATION_MS = 2000;
 
 const logoClass =
-  "h-12 w-auto max-w-full object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
+  "h-10 lg:h-12 w-auto max-w-full object-contain transition duration-500 hover:grayscale-0 hover:opacity-100";
 
 export function SocialProof() {
   const t = useTranslations();
+  const activeIndex = useCyclingHighlight(logos.length, HIGHLIGHT_DURATION_MS);
 
   return (
     <section className="bg-[#E9EAEB] py-16 lg:py-20 px-4 lg:px-8">
@@ -19,12 +31,19 @@ export function SocialProof() {
           {t.socialProof.title}
         </h2>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 lg:gap-8">
-          <img src={iconstormLogo} alt="Iconstorm" className={logoClass} />
-          <img src={kyklomaLogo} alt="Kykloma" className={logoClass} />
-          <img src={primeNavLogo} alt="Prime Nav" className={logoClass} />
-          <img src={vetLogo} alt="Vet" className={logoClass} />
-          <img src={fantasiaLogo} alt="Fantasia" className={logoClass} />
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-8 lg:gap-8">
+          {logos.map((logo, index) => (
+            <img
+              key={logo.alt}
+              src={logo.src}
+              alt={logo.alt}
+              className={`${logoClass} ${
+                index === activeIndex
+                  ? "grayscale-0 opacity-100"
+                  : "grayscale opacity-70"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

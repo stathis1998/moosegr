@@ -45,7 +45,7 @@ function FeatureItem({
             <p className="text-[#535862] lg:text-lg">{description}</p>
           </div>
         </div>
-        <div className="space-y-6">
+        <div className="space-y-6 pl-4">
           <ul className="space-y-4">
             {items.map((item, index) => (
               <li key={index} className="flex gap-3">

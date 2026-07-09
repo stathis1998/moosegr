@@ -14,12 +14,33 @@ import awsLogo from "@/assets/logos/aws.svg";
 import stripeLogo from "@/assets/logos/stripe_simple.svg";
 
 import { useTranslations } from "@/lib/i18n";
+import { useCyclingHighlight } from "@/lib/useCyclingHighlight";
+
+const logos = [
+  { src: figmaLogo, alt: "Figma" },
+  { src: typescriptLogo, alt: "TypeScript" },
+  { src: reactLogo, alt: "React" },
+  { src: nextJSLogo, alt: "Next.js" },
+  { src: viteJSLogo, alt: "Vite.js" },
+  { src: tailwindLogo, alt: "Tailwind CSS" },
+  { src: nodejsLogo, alt: "Node.js" },
+  { src: pythonLogo, alt: "Python" },
+  { src: postgreSQLLogo, alt: "PostgreSQL" },
+  { src: shopifyLogo, alt: "Shopify" },
+  { src: dockerLogo, alt: "Docker" },
+  { src: githubLogo, alt: "GitHub" },
+  { src: awsLogo, alt: "AWS" },
+  { src: stripeLogo, alt: "Stripe" },
+];
+
+const HIGHLIGHT_DURATION_MS = 2000;
 
 const logoClass =
-  "size-[88px] object-contain border border-gray-200 rounded-[12px] p-3 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
+  "size-[88px] object-contain border border-gray-200 rounded-[12px] p-3 transition duration-500 hover:grayscale-0 hover:opacity-100";
 
 export function TechStack() {
   const t = useTranslations();
+  const activeIndex = useCyclingHighlight(logos.length, HIGHLIGHT_DURATION_MS);
 
   return (
     <section
@@ -40,20 +61,18 @@ export function TechStack() {
       </div>
 
       <div className="grid grid-cols-[repeat(3,88px)] sm:grid-cols-[repeat(5,88px)] lg:grid-cols-[repeat(7,88px)] justify-center gap-2 sm:gap-6 lg:gap-8">
-        <img src={figmaLogo} alt="Figma" className={logoClass} />
-        <img src={typescriptLogo} alt="TypeScript" className={logoClass} />
-        <img src={reactLogo} alt="React" className={logoClass} />
-        <img src={nextJSLogo} alt="Next.js" className={logoClass} />
-        <img src={viteJSLogo} alt="Vite.js" className={logoClass} />
-        <img src={tailwindLogo} alt="Tailwind CSS" className={logoClass} />
-        <img src={nodejsLogo} alt="Node.js" className={logoClass} />
-        <img src={pythonLogo} alt="Python" className={logoClass} />
-        <img src={postgreSQLLogo} alt="PostgreSQL" className={logoClass} />
-        <img src={shopifyLogo} alt="Shopify" className={logoClass} />
-        <img src={dockerLogo} alt="Docker" className={logoClass} />
-        <img src={githubLogo} alt="GitHub" className={logoClass} />
-        <img src={awsLogo} alt="AWS" className={logoClass} />
-        <img src={stripeLogo} alt="Stripe" className={logoClass} />
+        {logos.map((logo, index) => (
+          <img
+            key={logo.alt}
+            src={logo.src}
+            alt={logo.alt}
+            className={`${logoClass} ${
+              index === activeIndex
+                ? "grayscale-0 opacity-100"
+                : "grayscale opacity-70"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
