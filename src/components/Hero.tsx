@@ -9,11 +9,13 @@ import logo from "@/assets/Logo wrap.svg";
 import logoGreen from "@/assets/green-Logo.svg";
 
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/language-context";
 import { scrollToContact } from "@/lib/contact";
 import { menuLinks } from "./constants/menu";
 
 export function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
 
   // Close on Escape and lock background scroll while the mobile menu is open.
   useEffect(() => {
@@ -66,7 +68,14 @@ export function Hero() {
                 {link.label}
               </button>
             ))}
-            <button className="ml-4">EN</button>
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              aria-label={`Switch language, current language ${language}`}
+              className="ml-4 hover:text-white transition-colors"
+            >
+              {language}
+            </button>
           </div>
 
           <button
