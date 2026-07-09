@@ -21,7 +21,7 @@ export function App() {
   };
 
   return (
-    <div className="max-w-360 mx-auto">
+    <div className="max-w-360 mx-auto bg-white">
       <Hero />
       <SocialProof />
       <Features onSelectProject={selectProject} />

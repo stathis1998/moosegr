@@ -4,19 +4,13 @@ import { Menu01, MessageChatCircle, Phone, XClose } from "@untitledui/icons";
 
 import backgroundHeroImageMobile from "@/assets/hero-image-mobile.jpg";
 import backgroundHeroImageDesktop from "@/assets/hero-image-desktop.jpg";
+
 import logo from "@/assets/Logo wrap.svg";
 import logoGreen from "@/assets/green-Logo.svg";
 
 import { Button } from "@/components/ui/button";
 import { scrollToContact } from "@/lib/contact";
-
-const menuLinks = [
-  { label: "Services", id: "services" },
-  { label: "Process", id: "process" },
-  { label: "Tech Stack", id: "tech" },
-  { label: "Featured Work", id: "work" },
-  { label: "Contact Us", id: "contact" },
-];
+import { menuLinks } from "./constants/menu";
 
 export function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -63,18 +57,16 @@ export function Hero() {
         <nav className="w-full max-w-7xl mx-auto h-20 pl-4 pr-3 lg:px-8 flex items-center justify-between gap-2">
           <img src={logo} alt="logo" />
           <div className="hidden lg:flex items-center gap-8 text-[#99F6E0] font-semibold text-base leading-6">
-            <a href="#services" className="hover:text-white transition-colors">
-              Services
-            </a>
-            <a href="#work" className="hover:text-white transition-colors">
-              Work
-            </a>
-            <a href="#tech" className="hover:text-white transition-colors">
-              Tech Stack
-            </a>
-            <a href="#contact" className="hover:text-white transition-colors">
-              Contact
-            </a>
+            {menuLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => goToSection(link.id)}
+                className="hover:text-white transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+            <button className="ml-4">EN</button>
           </div>
 
           <button
