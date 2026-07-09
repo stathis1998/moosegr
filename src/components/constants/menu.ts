@@ -1,7 +1,8 @@
+/** Section ids, in nav order. Each doubles as the key into `translations.nav`. */
 export const menuLinks = [
-  { label: "Services", id: "services" },
-  { label: "Process", id: "process" },
-  { label: "Tech Stack", id: "tech" },
-  { label: "Featured Work", id: "work" },
-  { label: "Contact Us", id: "contact" },
-];
+  "services",
+  "process",
+  "tech",
+  "work",
+  "contact",
+] as const;

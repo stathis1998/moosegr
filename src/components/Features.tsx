@@ -10,6 +10,8 @@ import womanOnScreen from "@/assets/woman-on-screen.jpg";
 import shopifyLaptop from "@/assets/shopify-laptop.jpg";
 import womanCoffee from "@/assets/woman-coffee.jpg";
 
+import { useTranslations } from "@/lib/i18n";
+
 function FeatureItem({
   title,
   description,
@@ -31,6 +33,8 @@ function FeatureItem({
   onSelectProject: (value: string) => void;
   reverse?: boolean;
 }) {
+  const t = useTranslations();
+
   return (
     <div className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
       <div className={`space-y-8 ${reverse ? "lg:order-2" : ""}`}>
@@ -57,7 +61,7 @@ function FeatureItem({
             onClick={() => onSelectProject(projectValue)}
             className="inline-flex items-center gap-2 text-[#107569] font-semibold hover:text-[#0B6B5A] transition-colors"
           >
-            See our featured projects
+            {t.features.seeProjects}
             <ArrowRight size={20} />
           </button>
         </div>
@@ -74,6 +78,8 @@ export function Features({
 }: {
   onSelectProject: (value: string) => void;
 }) {
+  const t = useTranslations();
+
   return (
     <section
       id="services"
@@ -82,44 +88,35 @@ export function Features({
       <div className="space-y-4 lg:max-w-3xl lg:mx-auto">
         <header className="space-y-3 text-center">
           <h2 className="text-[#107569] font-semibold text-sm">
-            Core Services
+            {t.features.eyebrow}
           </h2>
 
           <h1 className="font-semibold text-3xl lg:text-4xl">
-            What We Build For You
+            {t.features.title}
           </h1>
         </header>
         <p className="text-[#535862] text-lg text-center">
-          We translate your business challenges into intuitive, scalable
-          software solutions designed to drive your growth.
+          {t.features.description}
         </p>
       </div>
 
       <FeatureItem
-        title="Web Applications"
-        description="Empower your business with lightning-fast, scalable web apps built just for you."
-        items={[
-          "Intuitive, user-centric interfaces",
-          "Optimized for maximum performance",
-          "Custom features engineered for your workflows",
-        ]}
+        title={t.features.web.title}
+        description={t.features.web.description}
+        items={t.features.web.items}
         image={womanOnScreen}
-        altImage="woman-on-screen"
+        altImage={t.features.web.imageAlt}
         icon={<CodeBrowser color="#0E9384" />}
         projectValue="shipping"
         onSelectProject={onSelectProject}
       />
 
       <FeatureItem
-        title="Custom E-shops"
-        description="Turn visitors into loyal customers. With Shopify, we build seamless, high-converting e-commerce experiences tailored to your brand."
-        items={[
-          "Custom theme development and seamless API integrations",
-          "Frictionless, high-converting checkout flows",
-          "Easy-to-manage inventory and admin dashboards",
-        ]}
+        title={t.features.eshop.title}
+        description={t.features.eshop.description}
+        items={t.features.eshop.items}
         image={shopifyLaptop}
-        altImage="shopify-laptop"
+        altImage={t.features.eshop.imageAlt}
         icon={<ShoppingBag02 color="#0E9384" />}
         projectValue="ecommerce"
         onSelectProject={onSelectProject}
@@ -127,15 +124,11 @@ export function Features({
       />
 
       <FeatureItem
-        title="Tailored CRMs"
-        description="Ditch rigid software. Automate your daily operations with a CRM mapped perfectly to your needs."
-        items={[
-          "Automated routing aligned with your actual processes",
-          "Centralized, secure customer data hubs",
-          "Zero bloatware or unnecessary features",
-        ]}
+        title={t.features.crm.title}
+        description={t.features.crm.description}
+        items={t.features.crm.items}
         image={womanCoffee}
-        altImage="woman-coffee"
+        altImage={t.features.crm.imageAlt}
         icon={<Users01 color="#0E9384" />}
         projectValue="veterinary"
         onSelectProject={onSelectProject}

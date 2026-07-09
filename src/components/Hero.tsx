@@ -9,13 +9,15 @@ import logo from "@/assets/Logo wrap.svg";
 import logoGreen from "@/assets/green-Logo.svg";
 
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/context/language-context";
+// import { useLanguage } from "@/context/language-context";
 import { scrollToContact } from "@/lib/contact";
+import { useTranslations } from "@/lib/i18n";
 import { menuLinks } from "./constants/menu";
 
 export function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { language, toggleLanguage } = useLanguage();
+  // const { language, toggleLanguage } = useLanguage();
+  const t = useTranslations();
 
   // Close on Escape and lock background scroll while the mobile menu is open.
   useEffect(() => {
@@ -59,53 +61,55 @@ export function Hero() {
         <nav className="w-full max-w-7xl mx-auto h-20 pl-4 pr-3 lg:px-8 flex items-center justify-between gap-2">
           <img src={logo} alt="logo" />
           <div className="hidden lg:flex items-center gap-8 text-[#99F6E0] font-semibold text-base leading-6">
-            {menuLinks.map((link) => (
+            {menuLinks.map((id) => (
               <button
-                key={link.id}
-                onClick={() => goToSection(link.id)}
+                key={id}
+                onClick={() => goToSection(id)}
                 className="hover:text-white transition-colors"
               >
-                {link.label}
+                {t.nav[id]}
               </button>
             ))}
-            <button
+            {/* <button
               type="button"
               onClick={toggleLanguage}
-              aria-label={`Switch language, current language ${language}`}
+              aria-label={`${t.nav.switchLanguage} ${language}`}
               className="ml-4 hover:text-white transition-colors"
             >
               {language}
-            </button>
+            </button> */}
           </div>
 
           <button
             type="button"
-            aria-label="Open menu"
+            aria-label={t.nav.openMenu}
             onClick={() => setMenuOpen(true)}
             className="p-2 lg:hidden"
           >
             <Menu01 color="white" />
           </button>
         </nav>
-        <div className="flex-1 flex items-start lg:items-center">
+        <div className="flex-1 flex items-start pt-24">
           <div className="w-full max-w-7xl mx-auto flex flex-col items-center text-center gap-8 pt-16 lg:pt-0 px-4 lg:px-8">
             <div className="flex flex-col gap-4 lg:gap-6 max-w-4xl">
-              <h1 className="text-white font-semibold text-4xl leading-11 tracking-[-0.02em] lg:text-6xl xl:text-7xl lg:leading-[1.05]">
-                Custom Software Solutions that Scale
+              <h1 className="text-white font-semibold text-4xl leading-24 tracking-[-0.02em] lg:text-6xl xl:text-7xl">
+                {t.hero.title}
               </h1>
-              <div className="text-[#99F6E0] text-lg leading-7 lg:text-xl lg:max-w-2xl mx-auto">
-                We build high-performance web apps,{" "}
-                <span className="whitespace-nowrap">e-shops</span>, and CRMs for
-                forward-thinking companies.
-              </div>
             </div>
-            <div className="w-full lg:w-auto">
+            <div className="text-[#99F6E0] text-lg leading-7 lg:text-xl mx-auto">
+              {t.hero.subtitleBefore}
+              <span className="whitespace-nowrap">
+                {t.hero.subtitleHighlight}
+              </span>
+              {t.hero.subtitleAfter}
+            </div>
+            <div className="w-full lg:w-auto pt-4">
               <Button
                 asChild
                 className="w-full lg:w-auto bg-white font-semibold text-[#494855] shadow-xs py-3 lg:px-6 hover:bg-gray-200"
               >
                 <a href="#contact" onClick={scrollToContact}>
-                  Get a Free Consultation
+                  {t.hero.cta}
                 </a>
               </Button>
             </div>
@@ -126,7 +130,7 @@ export function Hero() {
               <img src={logoGreen} alt="logo" />
               <button
                 type="button"
-                aria-label="Close menu"
+                aria-label={t.nav.closeMenu}
                 onClick={() => setMenuOpen(false)}
                 className="p-2"
               >
@@ -135,14 +139,14 @@ export function Hero() {
             </div>
 
             <nav className="flex flex-col items-start gap-6 px-4 pt-4">
-              {menuLinks.map((link) => (
+              {menuLinks.map((id) => (
                 <button
-                  key={link.id}
+                  key={id}
                   type="button"
-                  onClick={() => goToSection(link.id)}
+                  onClick={() => goToSection(id)}
                   className="font-semibold text-2xl text-[#181D27] hover:text-[#0E9384] transition-colors"
                 >
-                  {link.label}
+                  {t.nav[id]}
                 </button>
               ))}
             </nav>

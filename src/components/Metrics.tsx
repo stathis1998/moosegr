@@ -1,5 +1,7 @@
 import metricsBg from "@/assets/metrics-bg.jpg";
 
+import { useTranslations } from "@/lib/i18n";
+
 function MetricItem({
   title,
   description,
@@ -20,6 +22,8 @@ function MetricItem({
 }
 
 export function Metrics() {
+  const t = useTranslations();
+
   return (
     <section
       id="process"
@@ -28,15 +32,15 @@ export function Metrics() {
       <div className="w-full max-w-7xl mx-auto space-y-12">
         <div className="space-y-4 text-center lg:max-w-2xl lg:mx-auto">
           <header className="space-y-3">
-            <h2 className="text-[#107569] font-semibold text-sm">Our Process</h2>
+            <h2 className="text-[#107569] font-semibold text-sm">
+              {t.metrics.eyebrow}
+            </h2>
 
             <h3 className="font-semibold text-2xl lg:text-4xl">
-              How We Bring Ideas to Life
+              {t.metrics.title}
             </h3>
           </header>
-          <p className="text-[#535862] lg:text-lg">
-            A transparent, streamlined approach from concept to deployment.
-          </p>
+          <p className="text-[#535862] lg:text-lg">{t.metrics.description}</p>
         </div>
 
         <div className="relative p-8 lg:p-16 lg:rounded-2xl lg:overflow-hidden">
@@ -48,18 +52,18 @@ export function Metrics() {
 
           <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
             <MetricItem
-              title="Plan & Design"
-              description="We dive into your business goals to map out a strategic architecture, then craft intuitive, user-centric interfaces before writing a single line of code."
+              title={t.metrics.plan.title}
+              description={t.metrics.plan.description}
             />
 
             <MetricItem
-              title="Build & Iterate"
-              description="We write clean, secure code and keep you in the loop with regular updates, transparent testing, and milestone reviews."
+              title={t.metrics.build.title}
+              description={t.metrics.build.description}
             />
 
             <MetricItem
-              title="Launch & Scale"
-              description="We handle the seamless deployment of your software and provide post-launch support to ensure your application grows effortlessly with your business."
+              title={t.metrics.launch.title}
+              description={t.metrics.launch.description}
             />
           </div>
         </div>

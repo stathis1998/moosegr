@@ -13,10 +13,14 @@ import githubLogo from "@/assets/logos/github.svg";
 import awsLogo from "@/assets/logos/aws.svg";
 import stripeLogo from "@/assets/logos/stripe_simple.svg";
 
+import { useTranslations } from "@/lib/i18n";
+
 const logoClass =
   "size-[88px] object-contain border border-gray-200 rounded-[12px] p-3 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
 
 export function TechStack() {
+  const t = useTranslations();
+
   return (
     <section
       id="tech"
@@ -24,15 +28,14 @@ export function TechStack() {
     >
       <div className="space-y-4 lg:max-w-3xl lg:mx-auto">
         <header className="space-y-3 text-center">
-          <h2 className="text-[#107569] font-semibold text-sm">Tech Stack</h2>
+          <h2 className="text-[#107569] font-semibold text-sm">
+            {t.tech.eyebrow}
+          </h2>
 
-          <h1 className="font-semibold text-3xl lg:text-4xl">
-            Powered by Modern Technology
-          </h1>
+          <h1 className="font-semibold text-3xl lg:text-4xl">{t.tech.title}</h1>
         </header>
         <p className="text-[#535862] text-lg text-center">
-          We build on enterprise-grade frameworks and infrastructure to ensure
-          your software is secure, scalable, and blazing fast.
+          {t.tech.description}
         </p>
       </div>
 

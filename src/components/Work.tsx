@@ -9,32 +9,14 @@ import primeNav from "@/assets/prime-nav.jpg";
 import veterinary from "@/assets/Macbook Pro mockup.png";
 import eshopPhone from "@/assets/eshop-phone.png";
 
-const projects = [
-  {
-    value: "shipping",
-    title: "PrimeNav Maritime Platform",
-    description:
-      "Partnering with an enterprise Java backend team, we engineered the complex frontend architecture for a global maritime logistics application. The web app provides an intuitive interface for tracking international shipping routes, cargo manifests, and real-time weather data.",
-    image: primeNav,
-    alt: "PrimeNav Maritime Platform",
-  },
-  {
-    value: "ecommerce",
-    title: "Retail E-commerce",
-    description:
-      "We transformed a clunky, underperforming legacy website into a seamless, highly-customized Shopify experience. To eliminate their biggest operational bottleneck, we engineered proprietary software to automate their massive bulk product uploads, saving the client hundreds of hours of manual data entry.",
-    image: eshopPhone,
-    alt: "E-commerce Website",
-  },
-  {
-    value: "veterinary",
-    title: "Veterinary Medical CRM",
-    description:
-      "Designed and developed a secure, centralized management system currently utilized by veterinary clinics across Athens. The portal allows medical professionals to seamlessly upload, track, and manage complex diagnostic results and patient files in real-time.",
-    image: veterinary,
-    alt: "Veterinary Medical CRM",
-  },
-];
+import { useTranslations } from "@/lib/i18n";
+
+/** Copy lives in `translations.work.projects`, keyed by `value`. */
+const projectImages = [
+  { value: "shipping", image: primeNav },
+  { value: "ecommerce", image: eshopPhone },
+  { value: "veterinary", image: veterinary },
+] as const;
 
 export function Work({
   value,
@@ -43,7 +25,15 @@ export function Work({
   value: string;
   onValueChange: (value: string) => void;
 }) {
-  const active = projects.find((project) => project.value === value) ?? projects[0];
+  const t = useTranslations();
+
+  const projects = projectImages.map((project) => ({
+    ...project,
+    ...t.work.projects[project.value],
+  }));
+
+  const active =
+    projects.find((project) => project.value === value) ?? projects[0];
 
   return (
     <section
@@ -53,18 +43,12 @@ export function Work({
       <div className="space-y-4 lg:max-w-3xl">
         <header className="space-y-3">
           <h2 className="text-[#107569] font-semibold text-sm">
-            Featured Work
+            {t.work.eyebrow}
           </h2>
 
-          <h1 className="font-semibold text-3xl lg:text-4xl">
-            Engineering Solutions for Every Industry
-          </h1>
+          <h1 className="font-semibold text-3xl lg:text-4xl">{t.work.title}</h1>
         </header>
-        <p className="text-[#535862] text-lg">
-          We don't just write code; we build scalable software that solves real
-          business bottlenecks. Here is a look at some of our recent
-          partnerships.
-        </p>
+        <p className="text-[#535862] text-lg">{t.work.description}</p>
       </div>
       <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
         <Accordion
@@ -80,7 +64,11 @@ export function Work({
               </AccordionTrigger>
               <AccordionContent className="text-[#535862] h-auto">
                 <div className="mb-2">{project.description}</div>
-                <img src={project.image} alt={project.alt} className="lg:hidden" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="lg:hidden"
+                />
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -89,7 +77,7 @@ export function Work({
         <div className="hidden lg:block lg:self-stretch relative">
           <img
             src={active.image}
-            alt={active.alt}
+            alt={active.title}
             className="absolute inset-0 w-full h-full object-contain"
           />
         </div>

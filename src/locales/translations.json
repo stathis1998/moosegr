@@ -1,0 +1,270 @@
+{
+  "en": {
+    "nav": {
+      "services": "Services",
+      "process": "Process",
+      "tech": "Tech Stack",
+      "work": "Featured Work",
+      "contact": "Contact Us",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "switchLanguage": "Switch language, current language"
+    },
+    "hero": {
+      "title": "Custom Software Solutions that Scale",
+      "subtitleBefore": "We build high-performance web apps, ",
+      "subtitleHighlight": "e-shops",
+      "subtitleAfter": ", and CRMs for forward-thinking companies.",
+      "cta": "Get a Free Consultation"
+    },
+    "socialProof": {
+      "title": "Join the businesses that trusted us."
+    },
+    "features": {
+      "eyebrow": "Core Services",
+      "title": "What We Build For You",
+      "description": "We translate your business challenges into intuitive, scalable software solutions designed to drive your growth.",
+      "seeProjects": "See our featured projects",
+      "web": {
+        "title": "Web Applications",
+        "description": "Empower your business with lightning-fast, scalable web apps built just for you.",
+        "items": [
+          "Intuitive, user-centric interfaces",
+          "Optimized for maximum performance",
+          "Custom features engineered for your workflows"
+        ],
+        "imageAlt": "A woman working at a computer screen"
+      },
+      "eshop": {
+        "title": "Custom E-shops",
+        "description": "Turn visitors into loyal customers. With Shopify, we build seamless, high-converting e-commerce experiences tailored to your brand.",
+        "items": [
+          "Custom theme development and seamless API integrations",
+          "Frictionless, high-converting checkout flows",
+          "Easy-to-manage inventory and admin dashboards"
+        ],
+        "imageAlt": "A Shopify storefront open on a laptop"
+      },
+      "crm": {
+        "title": "Tailored CRMs",
+        "description": "Ditch rigid software. Automate your daily operations with a CRM mapped perfectly to your needs.",
+        "items": [
+          "Automated routing aligned with your actual processes",
+          "Centralized, secure customer data hubs",
+          "Zero bloatware or unnecessary features"
+        ],
+        "imageAlt": "A woman holding a coffee while reviewing customer records"
+      }
+    },
+    "metrics": {
+      "eyebrow": "Our Process",
+      "title": "How We Bring Ideas to Life",
+      "description": "A transparent, streamlined approach from concept to deployment.",
+      "plan": {
+        "title": "Plan & Design",
+        "description": "We dive into your business goals to map out a strategic architecture, then craft intuitive, user-centric interfaces before writing a single line of code."
+      },
+      "build": {
+        "title": "Build & Iterate",
+        "description": "We write clean, secure code and keep you in the loop with regular updates, transparent testing, and milestone reviews."
+      },
+      "launch": {
+        "title": "Launch & Scale",
+        "description": "We handle the seamless deployment of your software and provide post-launch support to ensure your application grows effortlessly with your business."
+      }
+    },
+    "tech": {
+      "eyebrow": "Tech Stack",
+      "title": "Powered by Modern Technology",
+      "description": "We build on enterprise-grade frameworks and infrastructure to ensure your software is secure, scalable, and blazing fast."
+    },
+    "work": {
+      "eyebrow": "Featured Work",
+      "title": "Engineering Solutions for Every Industry",
+      "description": "We don't just write code; we build scalable software that solves real business bottlenecks. Here is a look at some of our recent partnerships.",
+      "projects": {
+        "shipping": {
+          "title": "PrimeNav Maritime Platform",
+          "description": "Partnering with an enterprise Java backend team, we engineered the complex frontend architecture for a global maritime logistics application. The web app provides an intuitive interface for tracking international shipping routes, cargo manifests, and real-time weather data."
+        },
+        "ecommerce": {
+          "title": "Retail E-commerce",
+          "description": "We transformed a clunky, underperforming legacy website into a seamless, highly-customized Shopify experience. To eliminate their biggest operational bottleneck, we engineered proprietary software to automate their massive bulk product uploads, saving the client hundreds of hours of manual data entry."
+        },
+        "veterinary": {
+          "title": "Veterinary Medical CRM",
+          "description": "Designed and developed a secure, centralized management system currently utilized by veterinary clinics across Athens. The portal allows medical professionals to seamlessly upload, track, and manage complex diagnostic results and patient files in real-time."
+        }
+      }
+    },
+    "cta": {
+      "title": "Let’s Talk",
+      "description": "Finding the best solution for you is our priority.",
+      "button": "Get a Free Consultation"
+    },
+    "contact": {
+      "eyebrow": "Contact Us",
+      "title": "Chat to our friendly team",
+      "description": "We’d love to hear from you. Please fill out this form or shoot us an email.",
+      "emailTitle": "Email",
+      "emailDescription": "Our friendly team is here to help.",
+      "phoneTitle": "Phone",
+      "phoneDescription": "Mon-Fri from 8am to 5pm.",
+      "form": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "message": "Message",
+        "messagePlaceholder": "Leave us a message...",
+        "privacyBefore": "You agree to our friendly ",
+        "privacyLink": "privacy policy",
+        "privacyAfter": ".",
+        "submit": "Send message",
+        "submitting": "Sending…"
+      },
+      "status": {
+        "privacyRequired": "Please agree to our privacy policy before submitting.",
+        "success": "Thanks for reaching out! Your message has been sent — we'll get back to you shortly.",
+        "genericError": "Something went wrong. Please try again.",
+        "networkError": "Couldn't reach the server. Please try again or email us directly."
+      }
+    },
+    "footer": {
+      "copyright": "© 2026 Moose Software Solutions. All rights reserved."
+    }
+  },
+  "el": {
+    "nav": {
+      "services": "Υπηρεσίες",
+      "process": "Διαδικασία",
+      "tech": "Τεχνολογίες",
+      "work": "Έργα",
+      "contact": "Επικοινωνία",
+      "openMenu": "Άνοιγμα μενού",
+      "closeMenu": "Κλείσιμο μενού",
+      "switchLanguage": "Αλλαγή γλώσσας, τρέχουσα γλώσσα"
+    },
+    "hero": {
+      "title": "Εξατομικευμένες Λύσεις Λογισμικού που Κλιμακώνονται",
+      "subtitleBefore": "Δημιουργούμε web εφαρμογές υψηλών επιδόσεων, ",
+      "subtitleHighlight": "e-shops",
+      "subtitleAfter": " και CRM για επιχειρήσεις με όραμα.",
+      "cta": "Ζητήστε Δωρεάν Συμβουλευτική"
+    },
+    "socialProof": {
+      "title": "Ενταχθείτε στις επιχειρήσεις που μας εμπιστεύτηκαν."
+    },
+    "features": {
+      "eyebrow": "Βασικές Υπηρεσίες",
+      "title": "Τι Δημιουργούμε Για Εσάς",
+      "description": "Μετατρέπουμε τις προκλήσεις της επιχείρησής σας σε λειτουργικές, κλιμακώσιμες λύσεις λογισμικού, σχεδιασμένες να οδηγούν την ανάπτυξή σας.",
+      "seeProjects": "Δείτε τα έργα μας",
+      "web": {
+        "title": "Web Εφαρμογές",
+        "description": "Ενισχύστε την επιχείρησή σας με ταχύτατες, κλιμακώσιμες web εφαρμογές, φτιαγμένες αποκλειστικά για εσάς.",
+        "items": [
+          "Διαισθητικές διεπαφές με επίκεντρο τον χρήστη",
+          "Βελτιστοποιημένες για μέγιστη απόδοση",
+          "Λειτουργίες σχεδιασμένες για τις δικές σας ροές εργασίας"
+        ],
+        "imageAlt": "Γυναίκα που εργάζεται μπροστά σε οθόνη υπολογιστή"
+      },
+      "eshop": {
+        "title": "Εξατομικευμένα E-shops",
+        "description": "Μετατρέψτε τους επισκέπτες σε πιστούς πελάτες. Με το Shopify, δημιουργούμε άψογες εμπειρίες ηλεκτρονικού εμπορίου υψηλής μετατροπής, προσαρμοσμένες στο brand σας.",
+        "items": [
+          "Ανάπτυξη custom theme και απρόσκοπτες ενσωματώσεις API",
+          "Ροές ολοκλήρωσης παραγγελίας χωρίς τριβές, υψηλής μετατροπής",
+          "Εύχρηστη διαχείριση αποθέματος και πίνακες ελέγχου"
+        ],
+        "imageAlt": "Ηλεκτρονικό κατάστημα Shopify ανοιχτό σε laptop"
+      },
+      "crm": {
+        "title": "Εξατομικευμένα CRM",
+        "description": "Ξεχάστε το άκαμπτο λογισμικό. Αυτοματοποιήστε τις καθημερινές σας λειτουργίες με ένα CRM απόλυτα προσαρμοσμένο στις ανάγκες σας.",
+        "items": [
+          "Αυτοματοποιημένη δρομολόγηση, ευθυγραμμισμένη με τις πραγματικές σας διαδικασίες",
+          "Κεντρικοποιημένα, ασφαλή κέντρα δεδομένων πελατών",
+          "Χωρίς περιττές λειτουργίες ή bloatware"
+        ],
+        "imageAlt": "Γυναίκα με καφέ που εξετάζει αρχεία πελατών"
+      }
+    },
+    "metrics": {
+      "eyebrow": "Η Διαδικασία Μας",
+      "title": "Πώς Δίνουμε Ζωή στις Ιδέες",
+      "description": "Μια διαφανής, βελτιστοποιημένη προσέγγιση από τη σύλληψη έως την υλοποίηση.",
+      "plan": {
+        "title": "Μελέτη & Σχεδιασμός",
+        "description": "Εμβαθύνουμε στους επιχειρηματικούς σας στόχους για να χαράξουμε μια στρατηγική αρχιτεκτονική και έπειτα δημιουργούμε διαισθητικές διεπαφές με επίκεντρο τον χρήστη, πριν γράψουμε την πρώτη γραμμή κώδικα."
+      },
+      "build": {
+        "title": "Ανάπτυξη & Βελτίωση",
+        "description": "Γράφουμε καθαρό, ασφαλή κώδικα και σας κρατάμε ενήμερους με τακτικές ενημερώσεις, διαφανείς δοκιμές και ανασκοπήσεις οροσήμων."
+      },
+      "launch": {
+        "title": "Κυκλοφορία & Κλιμάκωση",
+        "description": "Αναλαμβάνουμε την απρόσκοπτη υλοποίηση του λογισμικού σας και παρέχουμε υποστήριξη μετά την κυκλοφορία, ώστε η εφαρμογή σας να αναπτύσσεται αβίαστα μαζί με την επιχείρησή σας."
+      }
+    },
+    "tech": {
+      "eyebrow": "Τεχνολογίες",
+      "title": "Με Σύγχρονη Τεχνολογία",
+      "description": "Χτίζουμε πάνω σε frameworks και υποδομές enterprise επιπέδου, ώστε το λογισμικό σας να είναι ασφαλές, κλιμακώσιμο και εξαιρετικά γρήγορο."
+    },
+    "work": {
+      "eyebrow": "Επιλεγμένα Έργα",
+      "title": "Λύσεις Μηχανικής για Κάθε Κλάδο",
+      "description": "Δεν γράφουμε απλώς κώδικα· χτίζουμε κλιμακώσιμο λογισμικό που λύνει πραγματικά επιχειρηματικά προβλήματα. Δείτε μερικές από τις πρόσφατες συνεργασίες μας.",
+      "projects": {
+        "shipping": {
+          "title": "Ναυτιλιακή Πλατφόρμα PrimeNav",
+          "description": "Σε συνεργασία με μια enterprise ομάδα backend σε Java, σχεδιάσαμε τη σύνθετη αρχιτεκτονική frontend για μια παγκόσμια εφαρμογή ναυτιλιακής εφοδιαστικής. Η web εφαρμογή προσφέρει ένα διαισθητικό περιβάλλον για την παρακολούθηση διεθνών δρομολογίων, δηλωτικών φορτίου και δεδομένων καιρού σε πραγματικό χρόνο."
+        },
+        "ecommerce": {
+          "title": "Ηλεκτρονικό Κατάστημα Λιανικής",
+          "description": "Μετατρέψαμε έναν δυσλειτουργικό, παρωχημένο ιστότοπο σε μια άψογη, πλήρως εξατομικευμένη εμπειρία Shopify. Για να εξαλείψουμε το μεγαλύτερο λειτουργικό τους εμπόδιο, αναπτύξαμε ιδιόκτητο λογισμικό που αυτοματοποιεί τις μαζικές μεταφορτώσεις προϊόντων, γλιτώνοντας τον πελάτη από εκατοντάδες ώρες χειροκίνητης καταχώρησης δεδομένων."
+        },
+        "veterinary": {
+          "title": "Κτηνιατρικό Ιατρικό CRM",
+          "description": "Σχεδιάσαμε και αναπτύξαμε ένα ασφαλές, κεντρικοποιημένο σύστημα διαχείρισης που χρησιμοποιείται σήμερα από κτηνιατρικές κλινικές σε όλη την Αθήνα. Η πύλη επιτρέπει στους επαγγελματίες υγείας να ανεβάζουν, να παρακολουθούν και να διαχειρίζονται σύνθετα διαγνωστικά αποτελέσματα και αρχεία ασθενών σε πραγματικό χρόνο."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ας Μιλήσουμε",
+      "description": "Η εύρεση της καλύτερης λύσης για εσάς είναι προτεραιότητά μας.",
+      "button": "Ζητήστε Δωρεάν Συμβουλευτική"
+    },
+    "contact": {
+      "eyebrow": "Επικοινωνία",
+      "title": "Μιλήστε με την ομάδα μας",
+      "description": "Θα χαρούμε να σας ακούσουμε. Συμπληρώστε αυτή τη φόρμα ή στείλτε μας ένα email.",
+      "emailTitle": "Email",
+      "emailDescription": "Η φιλική μας ομάδα είναι εδώ για να βοηθήσει.",
+      "phoneTitle": "Τηλέφωνο",
+      "phoneDescription": "Δευτέρα-Παρασκευή, 8:00 έως 17:00.",
+      "form": {
+        "firstName": "Όνομα",
+        "lastName": "Επώνυμο",
+        "email": "Email",
+        "message": "Μήνυμα",
+        "messagePlaceholder": "Αφήστε μας ένα μήνυμα...",
+        "privacyBefore": "Συμφωνείτε με την ",
+        "privacyLink": "πολιτική απορρήτου",
+        "privacyAfter": " μας.",
+        "submit": "Αποστολή μηνύματος",
+        "submitting": "Αποστολή…"
+      },
+      "status": {
+        "privacyRequired": "Παρακαλούμε συμφωνήστε με την πολιτική απορρήτου πριν την υποβολή.",
+        "success": "Ευχαριστούμε για την επικοινωνία! Το μήνυμά σας στάλθηκε — θα επικοινωνήσουμε μαζί σας σύντομα.",
+        "genericError": "Κάτι πήγε στραβά. Παρακαλούμε δοκιμάστε ξανά.",
+        "networkError": "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή. Δοκιμάστε ξανά ή στείλτε μας email απευθείας."
+      }
+    },
+    "footer": {
+      "copyright": "© 2026 Moose Software Solutions. Με επιφύλαξη παντός δικαιώματος."
+    }
+  }
+}

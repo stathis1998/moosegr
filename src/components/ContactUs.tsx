@@ -6,15 +6,33 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Checkbox } from "./ui/checkbox";
 import { Button } from "./ui/button";
+import { useTranslations, type Translations } from "@/lib/i18n";
 
 const WEB3FORMS_ACCESS_KEY = "bee09bdb-369c-4d61-8d96-89edc7e78f75";
 
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
+/**
+ * Feedback is held as a translation key rather than a resolved string, so a
+ * language toggle re-renders the message in the new language. A `raw` message
+ * is the untranslatable text the form API hands back on rejection.
+ */
+type Feedback =
+  | { key: keyof Translations["contact"]["status"] }
+  | { raw: string }
+  | null;
+
 export function ContactUs() {
+  const t = useTranslations();
   const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<SubmitStatus>("idle");
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState<Feedback>(null);
+
+  const feedbackText = !feedback
+    ? ""
+    : "key" in feedback
+      ? t.contact.status[feedback.key]
+      : feedback.raw;
 
   const onSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,15 +40,16 @@ export function ContactUs() {
 
     if (!agreed) {
       setStatus("error");
-      setFeedback("Please agree to our privacy policy before submitting.");
+      setFeedback({ key: "privacyRequired" });
       return;
     }
 
     setStatus("submitting");
-    setFeedback("");
+    setFeedback(null);
 
     const formData = new FormData(form);
     formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    // Subject and name are read by us, not the visitor, so they stay in English.
     formData.append("subject", "New contact request from the website");
     formData.append(
       "name",
@@ -46,20 +65,18 @@ export function ContactUs() {
 
       if (data.success) {
         setStatus("success");
-        setFeedback(
-          "Thanks for reaching out! Your message has been sent — we'll get back to you shortly.",
-        );
+        setFeedback({ key: "success" });
         form.reset();
         setAgreed(false);
       } else {
         setStatus("error");
-        setFeedback(data.message ?? "Something went wrong. Please try again.");
+        setFeedback(
+          data.message ? { raw: data.message } : { key: "genericError" },
+        );
       }
     } catch {
       setStatus("error");
-      setFeedback(
-        "Couldn't reach the server. Please try again or email us directly.",
-      );
+      setFeedback({ key: "networkError" });
     }
   };
 
@@ -73,17 +90,14 @@ export function ContactUs() {
           <div className="space-y-4">
             <header className="space-y-3">
               <h2 className="text-[#107569] font-semibold text-sm">
-                Contact Us
+                {t.contact.eyebrow}
               </h2>
 
               <h1 className="font-semibold text-3xl lg:text-4xl">
-                Chat to our friendly team
+                {t.contact.title}
               </h1>
             </header>
-            <p className="text-[#535862] text-lg">
-              We’d love to hear from you. Please fill out this form or shoot us
-              an email.
-            </p>
+            <p className="text-[#535862] text-lg">{t.contact.description}</p>
           </div>
 
           <div className="space-y-10">
@@ -93,10 +107,10 @@ export function ContactUs() {
               </div>
               <div className="space-y-2">
                 <div>
-                  <h3 className="font-semibold text-lg">Email</h3>
-                  <p className="text-[#535862]">
-                    Our friendly team is here to help.
-                  </p>
+                  <h3 className="font-semibold text-lg">
+                    {t.contact.emailTitle}
+                  </h3>
+                  <p className="text-[#535862]">{t.contact.emailDescription}</p>
                 </div>
                 <a
                   href="mailto:stathopoulos.stathis98@gmail.com"
@@ -113,8 +127,10 @@ export function ContactUs() {
               </div>
               <div className="space-y-2">
                 <div>
-                  <h3 className="font-semibold text-lg">Phone</h3>
-                  <p className="text-[#535862]">Mon-Fri from 8am to 5pm.</p>
+                  <h3 className="font-semibold text-lg">
+                    {t.contact.phoneTitle}
+                  </h3>
+                  <p className="text-[#535862]">{t.contact.phoneDescription}</p>
                 </div>
                 <a
                   href="tel:+306980310555"
@@ -138,7 +154,8 @@ export function ContactUs() {
                 <Field>
                   <FieldLabel htmlFor="firstName">
                     <span className="font-medium">
-                      First name <span className="text-[#079455]">*</span>
+                      {t.contact.form.firstName}{" "}
+                      <span className="text-[#079455]">*</span>
                     </span>
                   </FieldLabel>
                   <Input
@@ -146,14 +163,15 @@ export function ContactUs() {
                     name="firstName"
                     required
                     autoComplete="given-name"
-                    placeholder="First name"
+                    placeholder={t.contact.form.firstName}
                     className="bg-white"
                   />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="lastName">
                     <span className="font-medium">
-                      Last name <span className="text-[#079455]">*</span>
+                      {t.contact.form.lastName}{" "}
+                      <span className="text-[#079455]">*</span>
                     </span>
                   </FieldLabel>
                   <Input
@@ -161,7 +179,7 @@ export function ContactUs() {
                     name="lastName"
                     required
                     autoComplete="family-name"
-                    placeholder="Last name"
+                    placeholder={t.contact.form.lastName}
                     className="bg-white"
                   />
                 </Field>
@@ -169,7 +187,8 @@ export function ContactUs() {
               <Field>
                 <FieldLabel htmlFor="email">
                   <span className="font-medium">
-                    Email <span className="text-[#079455]">*</span>
+                    {t.contact.form.email}{" "}
+                    <span className="text-[#079455]">*</span>
                   </span>
                 </FieldLabel>
                 <Input
@@ -178,14 +197,15 @@ export function ContactUs() {
                   type="email"
                   required
                   autoComplete="email"
-                  placeholder="Email"
+                  placeholder={t.contact.form.email}
                   className="bg-white"
                 />
               </Field>
               <Field>
                 <FieldLabel htmlFor="message">
                   <span className="font-medium">
-                    Message <span className="text-[#079455]">*</span>
+                    {t.contact.form.message}{" "}
+                    <span className="text-[#079455]">*</span>
                   </span>
                 </FieldLabel>
                 <Textarea
@@ -193,7 +213,7 @@ export function ContactUs() {
                   name="message"
                   required
                   autoComplete="off"
-                  placeholder="Leave us a message..."
+                  placeholder={t.contact.form.messagePlaceholder}
                   className="min-h-32 bg-white"
                 />
               </Field>
@@ -204,11 +224,11 @@ export function ContactUs() {
                   onCheckedChange={(checked) => setAgreed(checked === true)}
                 />
                 <FieldLabel htmlFor="privacy">
-                  You agree to our friendly{" "}
+                  {t.contact.form.privacyBefore}
                   <a href="#" className="underline">
-                    privacy policy
+                    {t.contact.form.privacyLink}
                   </a>
-                  .
+                  {t.contact.form.privacyAfter}
                 </FieldLabel>
               </Field>
               <Button
@@ -216,9 +236,11 @@ export function ContactUs() {
                 disabled={status === "submitting"}
                 className="w-full bg-[#0E9384] hover:bg-[#0B6B5A]"
               >
-                {status === "submitting" ? "Sending…" : "Send message"}
+                {status === "submitting"
+                  ? t.contact.form.submitting
+                  : t.contact.form.submit}
               </Button>
-              {feedback && (
+              {feedbackText && (
                 <p
                   role="status"
                   aria-live="polite"
@@ -226,7 +248,7 @@ export function ContactUs() {
                     status === "success" ? "text-[#079455]" : "text-red-600"
                   }`}
                 >
-                  {feedback}
+                  {feedbackText}
                 </p>
               )}
             </FieldGroup>
