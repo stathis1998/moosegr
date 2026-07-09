@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/@types/react/package.json'\\).version\\)\")",
+      "Bash(grep -iE \"^\\(x|xclose\\)\\\\.js$|^xclose\\\\.js$\")",
+      "Bash(grep -iE \"^Phone[0-9]*\\\\.js$\")",
+      "Bash(grep -iE \"^Mail[0-9]*\\\\.js$\")",
+      "Bash(grep -E \"^X\\\\.js$\")"
+    ]
+  }
+}

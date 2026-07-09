@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Separator } from "@/components/ui/separator";
 
 import { SocialProof } from "@/components/SocialProof";
@@ -11,17 +13,24 @@ import { ContactUs } from "./components/ContactUs";
 import { Footer } from "./components/Footer";
 
 export function App() {
+  const [activeProject, setActiveProject] = useState("shipping");
+
+  const selectProject = (value: string) => {
+    setActiveProject(value);
+    document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <Hero />
       <SocialProof />
-      <Features />
+      <Features onSelectProject={selectProject} />
       <Metrics />
       <TechStack />
-      <div className="px-4">
+      <div className="w-full max-w-7xl mx-auto px-4 lg:px-8">
         <Separator className="data-horizontal:h-0.5 bg-[#15B79E]" />
       </div>
-      <Work />
+      <Work value={activeProject} onValueChange={setActiveProject} />
       <CTASection />
       <ContactUs />
       <Footer />

@@ -131,4 +131,30 @@
 
 html {
   font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+button:not(:disabled),
+[role="button"]:not(:disabled),
+a[href] {
+  cursor: pointer;
+}
+
+@keyframes flash-border {
+  0% {
+    outline-color: rgba(21, 183, 158, 0);
+  }
+  15% {
+    outline-color: rgba(21, 183, 158, 0.9);
+  }
+  100% {
+    outline-color: rgba(21, 183, 158, 0);
+  }
+}
+
+.flash-border {
+  border-radius: 0.75rem;
+  outline: 2px solid transparent;
+  outline-offset: 10px;
+  animation: flash-border 2.6s ease-out;
 }

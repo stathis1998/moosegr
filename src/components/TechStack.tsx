@@ -13,14 +13,20 @@ import githubLogo from "@/assets/logos/github.svg";
 import awsLogo from "@/assets/logos/aws.svg";
 import stripeLogo from "@/assets/logos/stripe_simple.svg";
 
+const logoClass =
+  "border border-gray-200 rounded p-0.5 grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100";
+
 export function TechStack() {
   return (
-    <section className="px-4 py-16 space-y-12">
-      <div className="space-y-4">
+    <section
+      id="tech"
+      className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24 space-y-12 scroll-mt-20"
+    >
+      <div className="space-y-4 lg:max-w-3xl lg:mx-auto">
         <header className="space-y-3 text-center">
           <h2 className="text-[#107569] font-semibold text-sm">Tech Stack</h2>
 
-          <h1 className="font-semibold text-3xl">
+          <h1 className="font-semibold text-3xl lg:text-4xl">
             Powered by Modern Technology
           </h1>
         </header>
@@ -30,76 +36,76 @@ export function TechStack() {
         </p>
       </div>
 
-      <div className="flex gap-8 justify-center flex-wrap">
+      <div className="flex gap-8 justify-center flex-wrap lg:max-w-4xl lg:mx-auto">
         <img
           src={figmaLogo}
           alt="Figma"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={typescriptLogo}
           alt="TypeScript"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={reactLogo}
           alt="React"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={nextJSLogo}
           alt="Next.js"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={viteJSLogo}
           alt="Vite.js"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={tailwindLogo}
           alt="Tailwind CSS"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={nodejsLogo}
           alt="Node.js"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={pythonLogo}
           alt="Python"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={postgreSQLLogo}
           alt="PostgreSQL"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={shopifyLogo}
           alt="Shopify"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={dockerLogo}
           alt="Docker"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={githubLogo}
           alt="GitHub"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={awsLogo}
           alt="AWS"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
         <img
           src={stripeLogo}
           alt="Stripe"
-          className="border border-gray-200 rounded p-0.5"
+          className={logoClass}
         />
       </div>
     </section>
