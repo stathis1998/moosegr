@@ -13,6 +13,28 @@
       function gtag() {
         dataLayer.push(arguments);
       }
+
+      // Consent Mode v2: deny everything until the visitor answers the banner.
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
+
+      // Returning visitors: replay the stored choice before config runs.
+      try {
+        if (localStorage.getItem('cookie-consent') === 'granted') {
+          gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted',
+          });
+        }
+      } catch (e) {}
+
       gtag('js', new Date());
 
       gtag('config', 'G-7KQ7KMQM65');

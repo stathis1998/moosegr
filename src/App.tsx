@@ -11,6 +11,7 @@ import { Work } from "@/components/Work";
 import { CTASection } from "@/components/CTASection";
 import { ContactUs } from "./components/ContactUs";
 import { Footer } from "./components/Footer";
+import { CookieBanner } from "./components/CookieBanner";
 
 export function App() {
   const [activeProject, setActiveProject] = useState("shipping");
@@ -34,6 +35,7 @@ export function App() {
       <CTASection />
       <ContactUs />
       <Footer />
+      <CookieBanner />
     </div>
   );
 }

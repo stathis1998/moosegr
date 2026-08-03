@@ -131,6 +131,13 @@
     },
     "footer": {
       "copyright": "© 2026 Moose Software Solutions. All rights reserved."
+    },
+    "cookies": {
+      "title": "We value your privacy",
+      "description": "We use cookies to understand how visitors use our site and improve your experience. You can accept or decline analytics cookies.",
+      "privacyLink": "Privacy Policy",
+      "accept": "Accept",
+      "decline": "Decline"
     }
   },
   "el": {
@@ -265,6 +272,13 @@
     },
     "footer": {
       "copyright": "© 2026 Moose Software Solutions. Με επιφύλαξη παντός δικαιώματος."
+    },
+    "cookies": {
+      "title": "Σεβόμαστε το απόρρητό σας",
+      "description": "Χρησιμοποιούμε cookies για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπό μας και να βελτιώσουμε την εμπειρία σας. Μπορείτε να αποδεχτείτε ή να απορρίψετε τα cookies ανάλυσης.",
+      "privacyLink": "Πολιτική Απορρήτου",
+      "accept": "Αποδοχή",
+      "decline": "Απόρριψη"
     }
   }
 }
