@@ -57,7 +57,7 @@ export function TechStack() {
         <p className="text-body text-lg text-center">{t.tech.description}</p>
       </div>
 
-      <div className="grid grid-cols-[repeat(3,88px)] sm:grid-cols-[repeat(5,88px)] lg:grid-cols-[repeat(7,88px)] justify-center gap-2 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-[repeat(3,88px)] sm:grid-cols-[repeat(5,88px)] lg:grid-cols-[repeat(7,88px)] justify-center gap-8">
         {logos.map((logo, index) => (
           <img
             key={logo.alt}

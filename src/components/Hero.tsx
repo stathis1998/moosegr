@@ -171,8 +171,8 @@ export function Hero() {
             </Dialog.Portal>
           </Dialog.Root>
         </nav>
-        <div className="flex-1 flex items-start pt-24">
-          <div className="w-full max-w-7xl mx-auto flex flex-col items-center text-center gap-8 pt-16 lg:pt-0 px-4 lg:px-8">
+        <div className="flex-1 flex items-start pt-8 lg:pt-24">
+          <div className="w-full max-w-7xl mx-auto flex flex-col items-start text-left lg:items-center lg:text-center gap-8 px-4 lg:px-8">
             <div className="flex flex-col gap-4 lg:gap-6 max-w-4xl">
               <h1 className="text-white font-semibold text-4xl leading-tight tracking-[-0.02em] lg:text-6xl xl:text-7xl">
                 {t.hero.title}
@@ -188,7 +188,7 @@ export function Hero() {
             <div className="w-full lg:w-auto pt-4">
               <Button
                 asChild
-                className="w-full lg:w-auto bg-white font-semibold text-ink-muted shadow-xs py-3 lg:px-6 hover:bg-gray-200"
+                className="w-full lg:w-auto bg-white font-semibold text-ink-muted shadow-xs py-3.5 lg:px-6 hover:bg-gray-200"
               >
                 <a href="#contact" onClick={scrollToContact}>
                   {t.hero.cta}
