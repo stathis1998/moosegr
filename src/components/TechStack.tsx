@@ -13,6 +13,7 @@ import githubLogo from "@/assets/logos/github.svg";
 import awsLogo from "@/assets/logos/aws.svg";
 import stripeLogo from "@/assets/logos/stripe_simple.svg";
 
+import { SectionHeader } from "@/components/SectionHeader";
 import { useTranslations } from "@/lib/i18n";
 import { useCyclingHighlight } from "@/lib/useCyclingHighlight";
 
@@ -45,19 +46,15 @@ export function TechStack() {
   return (
     <section
       id="tech"
-      className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24 space-y-12 scroll-mt-20"
+      className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24 space-y-12"
     >
       <div className="space-y-4 lg:max-w-3xl lg:mx-auto">
-        <header className="space-y-3 text-center">
-          <h2 className="text-[#107569] font-semibold text-sm">
-            {t.tech.eyebrow}
-          </h2>
-
-          <h1 className="font-semibold text-3xl lg:text-4xl">{t.tech.title}</h1>
-        </header>
-        <p className="text-[#535862] text-lg text-center">
-          {t.tech.description}
-        </p>
+        <SectionHeader
+          eyebrow={t.tech.eyebrow}
+          title={t.tech.title}
+          align="center"
+        />
+        <p className="text-body text-lg text-center">{t.tech.description}</p>
       </div>
 
       <div className="grid grid-cols-[repeat(3,88px)] sm:grid-cols-[repeat(5,88px)] lg:grid-cols-[repeat(7,88px)] justify-center gap-2 sm:gap-6 lg:gap-8">
@@ -66,6 +63,9 @@ export function TechStack() {
             key={logo.alt}
             src={logo.src}
             alt={logo.alt}
+            width={88}
+            height={88}
+            loading="lazy"
             className={`${logoClass} ${
               index === activeIndex
                 ? "grayscale-0 opacity-100"

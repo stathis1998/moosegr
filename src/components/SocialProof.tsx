@@ -2,7 +2,7 @@ import iconstormLogo from "@/assets/iconstorm-logo.svg";
 import kyklomaLogo from "@/assets/kykloma-logo.svg";
 import primeNavLogo from "@/assets/prime-nav-logo.svg";
 import vetLogo from "@/assets/vet-logo.svg";
-import fantasiaLogo from "@/assets/fantasia-logo.svg";
+import fantasiaLogo from "@/assets/fantasia-logo.webp";
 
 import { useTranslations } from "@/lib/i18n";
 import { useCyclingHighlight } from "@/lib/useCyclingHighlight";
@@ -25,9 +25,9 @@ export function SocialProof() {
   const activeIndex = useCyclingHighlight(logos.length, HIGHLIGHT_DURATION_MS);
 
   return (
-    <section className="bg-[#E9EAEB] py-16 lg:py-20 px-4 lg:px-8">
+    <section className="bg-surface-muted py-16 lg:py-20 px-4 lg:px-8">
       <div className="w-full max-w-7xl mx-auto space-y-8 lg:space-y-12">
-        <h2 className="text-[#535862] text-lg font-medium text-center">
+        <h2 className="text-body text-lg font-medium text-center">
           {t.socialProof.title}
         </h2>
 
@@ -37,6 +37,7 @@ export function SocialProof() {
               key={logo.alt}
               src={logo.src}
               alt={logo.alt}
+              loading="lazy"
               className={`${logoClass} ${
                 index === activeIndex
                   ? "grayscale-0 opacity-100"

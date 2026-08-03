@@ -1,5 +1,6 @@
-import metricsBg from "@/assets/metrics-bg.jpg";
+import metricsBg from "@/assets/metrics-bg.webp";
 
+import { SectionHeader } from "@/components/SectionHeader";
 import { useTranslations } from "@/lib/i18n";
 
 function MetricItem({
@@ -27,28 +28,29 @@ export function Metrics() {
   return (
     <section
       id="process"
-      className="px-4 lg:px-8 py-16 lg:py-24 bg-[#E9EAEB] scroll-mt-20"
+      className="px-4 lg:px-8 py-16 lg:py-24 bg-surface-muted"
     >
       <div className="w-full max-w-7xl mx-auto space-y-12">
         <div className="space-y-4 text-center lg:max-w-2xl lg:mx-auto">
-          <header className="space-y-3">
-            <h2 className="text-[#107569] font-semibold text-sm">
-              {t.metrics.eyebrow}
-            </h2>
-
-            <h3 className="font-semibold text-2xl lg:text-4xl">
-              {t.metrics.title}
-            </h3>
-          </header>
-          <p className="text-[#535862] lg:text-lg">{t.metrics.description}</p>
+          <SectionHeader
+            eyebrow={t.metrics.eyebrow}
+            title={t.metrics.title}
+            align="center"
+            titleClassName="text-2xl lg:text-4xl"
+          />
+          <p className="text-body lg:text-lg">{t.metrics.description}</p>
         </div>
 
         <div className="relative p-8 lg:p-16 lg:rounded-2xl lg:overflow-hidden">
           <img
             src={metricsBg}
-            alt="metrics-bg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
           />
+          {/* Scrim keeps the white card text legible over any photo. */}
+          <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
 
           <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
             <MetricItem

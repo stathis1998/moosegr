@@ -28,7 +28,7 @@ export function App() {
       <Metrics />
       <TechStack />
       <div className="w-full max-w-7xl mx-auto px-4 lg:px-8">
-        <Separator className="data-horizontal:h-0.5 bg-[#15B79E]" />
+        <Separator className="data-horizontal:h-0.5 bg-brand-accent" />
       </div>
       <Work value={activeProject} onValueChange={setActiveProject} />
       <CTASection />

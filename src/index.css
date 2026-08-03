@@ -46,6 +46,26 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Brand palette — Moose teal (single source of truth) */
+  --color-brand: #0e9384;
+  --color-brand-strong: #107569;
+  --color-brand-hover: #0b6b5a;
+  --color-brand-accent: #15b79e;
+  --color-brand-dark: #115e59;
+  --color-brand-100: #ccfbef;
+  --color-brand-200: #99f6e0;
+  --color-brand-300: #5fe9d0;
+  --color-success: #079455;
+
+  /* Neutrals */
+  --color-ink: #181d27;
+  --color-ink-muted: #494855;
+  --color-body: #535862;
+  --color-label: #414651;
+  --color-placeholder: #717680;
+  --color-surface: #fafafa;
+  --color-surface-muted: #e9eaeb;
 }
 
 :root {
@@ -134,7 +154,7 @@ html {
 }
 
 #root {
-  background-color: #5a7373;
+  background-color: var(--color-gray-50, #f9fafb);
 }
 
 button:not(:disabled),

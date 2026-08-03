@@ -10,6 +10,7 @@ import womanOnScreen from "@/assets/woman-on-screen.jpg";
 import shopifyLaptop from "@/assets/shopify-laptop.jpg";
 import womanCoffee from "@/assets/woman-coffee.jpg";
 
+import { SectionHeader } from "@/components/SectionHeader";
 import { useTranslations } from "@/lib/i18n";
 
 function FeatureItem({
@@ -22,6 +23,7 @@ function FeatureItem({
   projectValue,
   onSelectProject,
   reverse = false,
+  className = "",
 }: {
   title: string;
   description: string;
@@ -32,42 +34,47 @@ function FeatureItem({
   projectValue: string;
   onSelectProject: (value: string) => void;
   reverse?: boolean;
+  className?: string;
 }) {
   const t = useTranslations();
 
   return (
-    <div className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
-      <div className={`space-y-8 ${reverse ? "lg:order-2" : ""}`}>
+    <div
+      className={`space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:items-center md:gap-16 ${className}`}
+    >
+      <div
+        className={`space-y-8 px-4 ${reverse ? "md:order-2 md:pl-10 md:pr-32" : "md:pl-32 md:pr-10"}`}
+      >
         <div className="space-y-5">
-          <div className="bg-[#CCFBEF] rounded-full p-3 size-fit">{icon}</div>
+          <div className="bg-brand-100 rounded-full p-3 size-fit">{icon}</div>
           <div className="space-y-2">
             <h3 className="font-semibold text-2xl lg:text-3xl">{title}</h3>
-            <p className="text-[#535862] lg:text-lg">{description}</p>
+            <p className="text-body lg:text-lg">{description}</p>
           </div>
         </div>
         <div className="space-y-6 pl-4">
           <ul className="space-y-4">
             {items.map((item, index) => (
               <li key={index} className="flex gap-3">
-                <div className="bg-[#CCFBEF] rounded-full p-1 size-fit">
+                <div className="bg-brand-100 rounded-full p-1 size-fit">
                   <Check color="#0E9384" size={18} />
                 </div>
-                <span className="text-[#535862]">{item}</span>
+                <span className="text-body">{item}</span>
               </li>
             ))}
           </ul>
           <button
             type="button"
             onClick={() => onSelectProject(projectValue)}
-            className="inline-flex items-center gap-2 text-[#107569] font-semibold hover:text-[#0B6B5A] transition-colors"
+            className="inline-flex items-center gap-2 text-brand-strong font-semibold hover:text-brand-hover transition-colors rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             {t.features.seeProjects}
             <ArrowRight size={20} />
           </button>
         </div>
       </div>
-      <div className={reverse ? "lg:order-1" : ""}>
-        <img src={image} alt={altImage} className="w-full" />
+      <div className={`${reverse ? "md:order-1" : ""} p-4 md:p-0`}>
+        <img src={image} alt={altImage} loading="lazy" className="w-full" />
       </div>
     </div>
   );
@@ -83,19 +90,15 @@ export function Features({
   return (
     <section
       id="services"
-      className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24 space-y-12 lg:space-y-24 scroll-mt-20"
+      className="w-full py-16 lg:py-24 space-y-12 lg:space-y-24"
     >
-      <div className="space-y-4 lg:max-w-3xl lg:mx-auto">
-        <header className="space-y-3 text-center">
-          <h2 className="text-[#107569] font-semibold text-sm">
-            {t.features.eyebrow}
-          </h2>
-
-          <h1 className="font-semibold text-3xl lg:text-4xl">
-            {t.features.title}
-          </h1>
-        </header>
-        <p className="text-[#535862] text-lg text-center">
+      <div className="px-4 space-y-4 lg:max-w-3xl lg:mx-auto">
+        <SectionHeader
+          eyebrow={t.features.eyebrow}
+          title={t.features.title}
+          align="center"
+        />
+        <p className="text-body text-lg text-center">
           {t.features.description}
         </p>
       </div>

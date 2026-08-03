@@ -1,12 +1,14 @@
 import { useState, type SyntheticEvent } from "react";
 
-import { MessageChatCircle } from "@untitledui/icons";
+import { MessageChatCircle, Phone } from "@untitledui/icons";
 import { Field, FieldGroup, FieldLabel, FieldSet } from "./ui/field";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Checkbox } from "./ui/checkbox";
 import { Button } from "./ui/button";
+import { SectionHeader } from "@/components/SectionHeader";
 import { useTranslations, type Translations } from "@/lib/i18n";
+import { trackLead } from "@/lib/analytics";
 
 const WEB3FORMS_ACCESS_KEY = "bee09bdb-369c-4d61-8d96-89edc7e78f75";
 
@@ -68,6 +70,7 @@ export function ContactUs() {
         setFeedback({ key: "success" });
         form.reset();
         setAgreed(false);
+        trackLead("contact_form");
       } else {
         setStatus("error");
         setFeedback(
@@ -83,26 +86,21 @@ export function ContactUs() {
   return (
     <section
       id="contact"
-      className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24 scroll-mt-20"
+      className="w-full max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24"
     >
-      <div className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+      <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-16 md:items-start">
         <div className="space-y-12">
           <div className="space-y-4">
-            <header className="space-y-3">
-              <h2 className="text-[#107569] font-semibold text-sm">
-                {t.contact.eyebrow}
-              </h2>
-
-              <h1 className="font-semibold text-3xl lg:text-4xl">
-                {t.contact.title}
-              </h1>
-            </header>
-            <p className="text-[#535862] text-lg">{t.contact.description}</p>
+            <SectionHeader
+              eyebrow={t.contact.eyebrow}
+              title={t.contact.title}
+            />
+            <p className="text-body text-lg">{t.contact.description}</p>
           </div>
 
           <div className="space-y-10">
             <div className="flex gap-4">
-              <div className="bg-[#CCFBEF] rounded-full p-2 size-fit">
+              <div className="bg-brand-100 rounded-full p-2 size-fit">
                 <MessageChatCircle color="#0E9384" size={18} />
               </div>
               <div className="space-y-2">
@@ -110,31 +108,33 @@ export function ContactUs() {
                   <h3 className="font-semibold text-lg">
                     {t.contact.emailTitle}
                   </h3>
-                  <p className="text-[#535862]">{t.contact.emailDescription}</p>
+                  <p className="text-body">{t.contact.emailDescription}</p>
                 </div>
                 <a
-                  href="mailto:stathopoulos.stathis98@gmail.com"
-                  className="text-[#0E9384] font-semibold"
+                  href="mailto:info@moose.gr"
+                  onClick={() => trackLead("email")}
+                  className="text-brand font-semibold"
                 >
-                  stathopoulos.stathis98@gmail.com
+                  info@moose.gr
                 </a>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="bg-[#CCFBEF] rounded-full p-2 size-fit">
-                <MessageChatCircle color="#0E9384" size={18} />
+              <div className="bg-brand-100 rounded-full p-2 size-fit">
+                <Phone color="#0E9384" size={18} />
               </div>
               <div className="space-y-2">
                 <div>
                   <h3 className="font-semibold text-lg">
                     {t.contact.phoneTitle}
                   </h3>
-                  <p className="text-[#535862]">{t.contact.phoneDescription}</p>
+                  <p className="text-body">{t.contact.phoneDescription}</p>
                 </div>
                 <a
                   href="tel:+306980310555"
-                  className="text-[#0E9384] font-semibold"
+                  onClick={() => trackLead("phone")}
+                  className="text-brand font-semibold"
                 >
                   +30 698 031 0555
                 </a>
@@ -146,7 +146,7 @@ export function ContactUs() {
         <form
           id="contact-form"
           onSubmit={onSubmit}
-          className="lg:bg-[#FAFAFA] lg:rounded-2xl lg:p-8"
+          className="scroll-mt-4 md:bg-surface md:rounded-2xl md:p-8"
         >
           <FieldSet>
             <FieldGroup>
@@ -155,7 +155,7 @@ export function ContactUs() {
                   <FieldLabel htmlFor="firstName">
                     <span className="font-medium">
                       {t.contact.form.firstName}{" "}
-                      <span className="text-[#079455]">*</span>
+                      <span className="text-success">*</span>
                     </span>
                   </FieldLabel>
                   <Input
@@ -171,7 +171,7 @@ export function ContactUs() {
                   <FieldLabel htmlFor="lastName">
                     <span className="font-medium">
                       {t.contact.form.lastName}{" "}
-                      <span className="text-[#079455]">*</span>
+                      <span className="text-success">*</span>
                     </span>
                   </FieldLabel>
                   <Input
@@ -188,7 +188,7 @@ export function ContactUs() {
                 <FieldLabel htmlFor="email">
                   <span className="font-medium">
                     {t.contact.form.email}{" "}
-                    <span className="text-[#079455]">*</span>
+                    <span className="text-success">*</span>
                   </span>
                 </FieldLabel>
                 <Input
@@ -205,7 +205,7 @@ export function ContactUs() {
                 <FieldLabel htmlFor="message">
                   <span className="font-medium">
                     {t.contact.form.message}{" "}
-                    <span className="text-[#079455]">*</span>
+                    <span className="text-success">*</span>
                   </span>
                 </FieldLabel>
                 <Textarea
@@ -225,7 +225,12 @@ export function ContactUs() {
                 />
                 <FieldLabel htmlFor="privacy">
                   {t.contact.form.privacyBefore}
-                  <a href="#" className="underline">
+                  <a
+                    href="/privacy.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
                     {t.contact.form.privacyLink}
                   </a>
                   {t.contact.form.privacyAfter}
@@ -234,7 +239,7 @@ export function ContactUs() {
               <Button
                 type="submit"
                 disabled={status === "submitting"}
-                className="w-full bg-[#0E9384] hover:bg-[#0B6B5A]"
+                className="w-full bg-brand hover:bg-brand-hover"
               >
                 {status === "submitting"
                   ? t.contact.form.submitting
@@ -245,7 +250,7 @@ export function ContactUs() {
                   role="status"
                   aria-live="polite"
                   className={`text-sm font-medium ${
-                    status === "success" ? "text-[#079455]" : "text-red-600"
+                    status === "success" ? "text-success" : "text-red-600"
                   }`}
                 >
                   {feedbackText}

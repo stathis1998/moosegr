@@ -1,75 +1,52 @@
-# React + TypeScript + Vite
+# Moose Software Solutions — marketing site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Single-page marketing site for **Moose Software Solutions** (moose.gr): custom web
+applications, Shopify e-shops, and CRMs.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Vite 8** (Rolldown) + **React 19** (React Compiler) + **TypeScript**
+- **Tailwind CSS v4** (theme + tokens in `src/index.css`) + shadcn/ui + Radix
+- Contact form delivery via [Web3Forms](https://web3forms.com/)
 
-## React Compiler
+## Scripts
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+| Command           | What it does                                                      |
+| ----------------- | ---------------------------------------------------------------- |
+| `npm run dev`     | Start the dev server (HMR).                                       |
+| `npm run build`   | Typecheck, bundle, then **prerender** `dist/index.html`.          |
+| `npm run preview` | Serve the production build locally.                              |
+| `npm run lint`    | Run ESLint.                                                       |
 
-Note: This will impact Vite dev & build performances.
+### Build & prerender
 
-## Expanding the ESLint configuration
+`npm run build` runs `tsc -b && vite build && node prerender.mjs`. The prerender
+step (`prerender.mjs`) loads the built site in headless Chromium and writes the
+rendered HTML back into `dist/index.html`, so search engines and social-link
+scrapers receive real content and meta tags. `puppeteer` (a dev dependency)
+downloads a Chromium build on install.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project layout
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `src/components/` — page sections (`Hero`, `Features`, `Metrics`, `TechStack`,
+  `Work`, `CTASection`, `ContactUs`, `Footer`) + shared `SectionHeader`,
+  `ErrorBoundary`, and `ui/` primitives.
+- `src/locales/translations.json` — EN/EL copy (the site currently ships English;
+  the language toggle is intentionally disabled).
+- `src/index.css` — Tailwind theme, brand color tokens, global styles.
+- `public/` — `favicon.svg`, `og-image.jpg`, `robots.txt`, `sitemap.xml`,
+  `privacy.html`.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Deploy
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Static SPA. `netlify.toml` is included (build `npm run build`, publish `dist`,
+`www → non-www` redirect). Any static host works; serve `dist/` at the domain
+root and keep the `www → non-www` redirect. Update the hard-coded
+`https://moose.gr` URLs in `index.html`, `public/sitemap.xml`, and
+`public/robots.txt` if the domain changes.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Contact form
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The form posts to Web3Forms using a public access key in
+`src/components/ContactUs.tsx`. Enable hCaptcha and domain allow-listing in the
+Web3Forms dashboard before launch to prevent spam to `info@moose.gr`.

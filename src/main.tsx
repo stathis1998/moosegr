@@ -3,12 +3,15 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import { LanguageProvider } from "@/context/LanguageProvider";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import { App } from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <LanguageProvider>
-      <App />
-    </LanguageProvider>
+    <ErrorBoundary>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </ErrorBoundary>
   </StrictMode>,
 );
