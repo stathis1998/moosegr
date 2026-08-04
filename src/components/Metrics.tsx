@@ -41,7 +41,7 @@ export function Metrics() {
           <p className="text-body lg:text-lg">{t.metrics.description}</p>
         </div>
 
-        <div className="relative p-8 lg:p-16 lg:rounded-2xl lg:overflow-hidden">
+        <div className="relative p-8 lg:p-16 rounded-2xl overflow-hidden">
           <img
             src={metricsBg}
             alt=""
