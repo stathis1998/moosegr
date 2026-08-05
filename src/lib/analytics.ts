@@ -19,4 +19,12 @@ type LeadMethod = "contact_form" | "email" | "phone";
  */
 export function trackLead(method: LeadMethod): void {
   window.gtag?.("event", "generate_lead", { method });
+
+  // Google Ads conversion. All lead methods share the "Submit lead form"
+  // action for now — split into per-method actions once they exist in Ads.
+  window.gtag?.("event", "conversion", {
+    send_to: "AW-18369329164/ywsSCMTzotscEIzwlrdE",
+    value: 1.0,
+    currency: "EUR",
+  });
 }
