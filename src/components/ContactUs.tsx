@@ -70,7 +70,9 @@ export function ContactUs() {
         setFeedback({ key: "success" });
         form.reset();
         setAgreed(false);
-        trackLead("contact_form");
+        trackLead("contact_form", {
+          email: String(formData.get("email") ?? ""),
+        });
       } else {
         setStatus("error");
         setFeedback(
