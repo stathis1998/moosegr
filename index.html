@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-white.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-white-48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-white-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-white.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0e9384" />
 
@@ -14,23 +17,45 @@
         dataLayer.push(arguments);
       }
 
-      // Consent Mode v2: deny everything until the visitor answers the banner.
+      // Consent Mode v2, region-aware: consent is only legally required in the
+      // EEA/UK/CH, so default to granted elsewhere — a global "denied" default
+      // trips Google Ads' "0% consent rate" diagnostic and drops measurement
+      // for visitors who never needed a banner.
+      gtag('consent', 'default', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+      });
+      // EEA + UK + CH: deny until the visitor answers the banner. The more
+      // specific region setting takes precedence over the global one above.
       gtag('consent', 'default', {
         ad_storage: 'denied',
         ad_user_data: 'denied',
         ad_personalization: 'denied',
         analytics_storage: 'denied',
         wait_for_update: 500,
+        region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR',
+                 'HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL',
+                 'PT','RO','SK','SI','ES','SE','GB','CH'],
       });
 
+      // Recover ad-click and conversion data even while consent is denied
+      // (cookieless pings + URL passthrough), per Google's consent-mode docs.
+      gtag('set', 'url_passthrough', true);
+      gtag('set', 'ads_data_redaction', true);
+
       // Returning visitors: replay the stored choice before config runs.
+      // Both values matter — a stored "denied" must override the granted
+      // default that non-EEA visitors now start with.
       try {
-        if (localStorage.getItem('cookie-consent') === 'granted') {
+        var storedConsent = localStorage.getItem('cookie-consent');
+        if (storedConsent === 'granted' || storedConsent === 'denied') {
           gtag('consent', 'update', {
-            ad_storage: 'granted',
-            ad_user_data: 'granted',
-            ad_personalization: 'granted',
-            analytics_storage: 'granted',
+            ad_storage: storedConsent,
+            ad_user_data: storedConsent,
+            ad_personalization: storedConsent,
+            analytics_storage: storedConsent,
           });
         }
       } catch (e) {}
