@@ -18,8 +18,9 @@ APP_PASSWORD="${APP_PASSWORD// /}"
 [ -n "$APP_PASSWORD" ] || { echo "Empty password, aborting."; exit 1; }
 
 # 2. Service files.
-install -d /opt/moosegr-contact
+install -d /opt/moosegr-contact/templates
 install -m 644 "$DIR/app.py" /opt/moosegr-contact/app.py
+install -m 644 "$DIR"/templates/*.html /opt/moosegr-contact/templates/
 install -m 644 "$DIR/moosegr-contact.service" /etc/systemd/system/moosegr-contact.service
 
 # 3. Env file (600, root:root).

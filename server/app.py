@@ -7,6 +7,7 @@ submission, emails it to CONTACT_TO, and sends the visitor a
 language-matched auto-reply. Python stdlib only — no dependencies.
 """
 
+import html
 import json
 import os
 import re
@@ -14,6 +15,7 @@ import smtplib
 import ssl
 import sys
 from datetime import datetime, timezone
+from pathlib import Path
 from email.message import EmailMessage
 from email.utils import formataddr
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -66,6 +68,15 @@ AUTO_REPLY = {
             "https://moose.gr\n"
         ),
     },
+}
+
+# HTML alternative for the auto-reply — one file per language so the design
+# can be edited without touching this script. {{first_name}} is the only
+# placeholder. Loaded once at startup; a missing file fails the service loudly.
+TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
+AUTO_REPLY_HTML = {
+    lang: (TEMPLATE_DIR / f"auto-reply.{lang}.html").read_text(encoding="utf-8")
+    for lang in AUTO_REPLY
 }
 
 
@@ -136,7 +147,14 @@ def build_auto_reply(fields):
     # to our auto-reply and starting a mail loop.
     msg["Auto-Submitted"] = "auto-replied"
     msg["X-Auto-Response-Suppress"] = "All"
+    # Plain text first, HTML as the preferred alternative.
     msg.set_content(template["body"].format(first_name=fields["firstName"]))
+    msg.add_alternative(
+        AUTO_REPLY_HTML[fields["lang"]].replace(
+            "{{first_name}}", html.escape(fields["firstName"])
+        ),
+        subtype="html",
+    )
     return msg
 
 

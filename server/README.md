@@ -15,7 +15,7 @@ SMTP as info@moose.gr.
 
    ```sh
    ssh moose-svr "mkdir -p ~/moosegr-contact-setup"
-   scp server/* moose-svr:~/moosegr-contact-setup/
+   scp -r server/* moose-svr:~/moosegr-contact-setup/
    ```
 
 3. **Run the installer** — it prompts for the app password, installs the
@@ -37,9 +37,13 @@ manual equivalent of the installer is documented in the script itself.
 
 ## Updating the backend
 
+The auto-reply's HTML design lives in `templates/auto-reply.{en,el}.html`
+(`{{first_name}}` is the only placeholder; the plain-text fallback and
+subjects stay in `app.py`). To ship backend or template changes:
+
 ```sh
-scp server/app.py moose-svr:/tmp/app.py
-ssh -t moose-svr "sudo install -m 644 /tmp/app.py /opt/moosegr-contact/app.py && sudo systemctl restart moosegr-contact"
+scp -r server/app.py server/templates moose-svr:~/moosegr-contact-setup/
+ssh -t moose-svr "sudo bash ~/moosegr-contact-setup/update.sh"
 ```
 
 The site's zip-based deploy to /var/www/moosegr is unrelated and unchanged.
