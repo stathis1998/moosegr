@@ -13,7 +13,8 @@ function MetricItem({
   return (
     <div className="relative z-10 flex flex-col items-center p-6 gap-4 bg-white/30 border border-white/30 backdrop-blur-lg rounded-2xl h-full">
       <div className="space-y-3">
-        <h3 className="text-white text-2xl font-semibold text-center">
+        {/* Sized so the Greek titles stay on one line in the 3-column grid. */}
+        <h3 className="text-white text-2xl lg:text-lg xl:text-xl lg:whitespace-nowrap font-semibold text-center">
           {title}
         </h3>
         <p className="text-white">{description}</p>
