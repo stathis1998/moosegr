@@ -12,7 +12,7 @@ import logo from "@/assets/Logo wrap.svg";
 import logoGreen from "@/assets/green-Logo.svg";
 
 import { Button } from "@/components/ui/button";
-// import { useLanguage } from "@/context/language-context";
+import { useLanguage } from "@/context/language-context";
 import { scrollToContact } from "@/lib/contact";
 import { trackLead } from "@/lib/analytics";
 import { useTranslations } from "@/lib/i18n";
@@ -23,7 +23,7 @@ const navFocus =
 
 export function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const { language, toggleLanguage } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
   const t = useTranslations();
 
   const pendingSection = useRef<string | null>(null);
@@ -70,14 +70,14 @@ export function Hero() {
                 {t.nav[id]}
               </button>
             ))}
-            {/* <button
+            <button
               type="button"
               onClick={toggleLanguage}
               aria-label={`${t.nav.switchLanguage} ${language}`}
-              className="ml-4 hover:text-white transition-colors"
+              className={`ml-4 hover:text-white transition-colors ${navFocus}`}
             >
               {language}
-            </button> */}
+            </button>
           </div>
 
           <Dialog.Root open={menuOpen} onOpenChange={setMenuOpen}>
@@ -110,12 +110,22 @@ export function Hero() {
                 <Dialog.Title className="sr-only">Menu</Dialog.Title>
                 <div className="h-20 pl-4 pr-3 flex items-center justify-between">
                   <img src={logoGreen} alt="Moose Software Solutions" />
-                  <Dialog.Close
-                    aria-label={t.nav.closeMenu}
-                    className="p-2 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand"
-                  >
-                    <XClose color="#181D27" />
-                  </Dialog.Close>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={toggleLanguage}
+                      aria-label={`${t.nav.switchLanguage} ${language}`}
+                      className="p-2 font-semibold text-ink hover:text-brand transition-colors rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                    >
+                      {language}
+                    </button>
+                    <Dialog.Close
+                      aria-label={t.nav.closeMenu}
+                      className="p-2 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                    >
+                      <XClose color="#181D27" />
+                    </Dialog.Close>
+                  </div>
                 </div>
 
                 <nav className="flex flex-col items-start gap-6 px-4 pt-4">
