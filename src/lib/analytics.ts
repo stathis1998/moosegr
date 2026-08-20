@@ -1,7 +1,8 @@
 /**
- * Type-safe wrapper around the Google Analytics gtag.js snippet loaded in
- * index.html. Every call no-ops safely when gtag is missing — ad blockers,
- * or the server-side prerender pass — so analytics can never break the page.
+ * Type-safe wrapper around the Google gtag.js snippet loaded in
+ * Base.astro (GA4 + Google Ads). Every call no-ops safely when gtag is
+ * missing — ad blockers, or the server-side prerender pass — so analytics
+ * can never break the page.
  */
 
 declare global {
