@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>New contact request</title>
+</head>
+<body style="margin:0;padding:0;background-color:#eef4f2;">
+  <!-- Preview text shown next to the subject in the inbox; invisible in the email body. -->
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    {{first_name}} {{last_name}} &#8212; {{message}}&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eef4f2;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
+          <!-- Brand edge -->
+          <tr>
+            <td bgcolor="#0e9384" style="border-radius:14px 14px 0 0;height:5px;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+          <!-- Card -->
+          <tr>
+            <td bgcolor="#ffffff" style="border-radius:0 0 14px 14px;padding:36px 40px 32px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+              <img src="https://moose.gr/email-logo.png" width="144" height="36" alt="Moose Software Solutions" style="display:block;margin:0 0 28px;border:0;font-size:16px;font-weight:800;color:#115e59;">
+              <h1 style="margin:0 0 24px;font-size:22px;line-height:30px;font-weight:700;color:#1d2939;">New contact request</h1>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px;">
+                <tr>
+                  <td style="padding:0 0 14px;">
+                    <p style="margin:0 0 2px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#98a2b3;">Name</p>
+                    <p style="margin:0;font-size:15px;line-height:24px;color:#1d2939;font-weight:600;">{{first_name}} {{last_name}}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0;">
+                    <p style="margin:0 0 2px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#98a2b3;">Email</p>
+                    <p style="margin:0;font-size:15px;line-height:24px;">
+                      <a href="mailto:{{email}}" style="color:#0e9384;font-weight:600;text-decoration:none;">{{email}}</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#98a2b3;">Message</p>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
+                <tr>
+                  <td style="background-color:#f4f7f6;border-left:4px solid #0e9384;border-radius:8px;padding:14px 18px;font-size:15px;line-height:24px;color:#344054;">
+                    {{message}}
+                  </td>
+                </tr>
+              </table>
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td bgcolor="#0e9384" style="border-radius:8px;">
+                    <a href="mailto:{{email}}" style="display:inline-block;padding:11px 22px;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;text-decoration:none;">Reply to {{first_name}}</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 8px 0;text-align:center;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+              <p style="margin:0 0 4px;font-size:12px;line-height:18px;color:#98a2b3;">Language: {{language}} &#183; IP: {{ip}}</p>
+              <p style="margin:0;font-size:12px;line-height:18px;color:#98a2b3;">Sent by the contact form on <a href="https://moose.gr" style="color:#0e9384;text-decoration:none;">moose.gr</a>.</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

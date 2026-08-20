@@ -70,14 +70,17 @@ AUTO_REPLY = {
     },
 }
 
-# HTML alternative for the auto-reply — one file per language so the design
-# can be edited without touching this script. {{first_name}} is the only
-# placeholder. Loaded once at startup; a missing file fails the service loudly.
+# HTML alternatives for both emails — one file per design so they can be
+# edited without touching this script. Placeholders use {{name}} syntax.
+# Loaded once at startup; a missing file fails the service loudly.
 TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
 AUTO_REPLY_HTML = {
     lang: (TEMPLATE_DIR / f"auto-reply.{lang}.html").read_text(encoding="utf-8")
     for lang in AUTO_REPLY
 }
+NOTIFICATION_HTML = (TEMPLATE_DIR / "notification.html").read_text(encoding="utf-8")
+
+LANG_NAMES = {"en": "English", "el": "Greek"}
 
 
 def log(message):
@@ -134,6 +137,19 @@ def build_notification(fields, client_ip):
         f"Language: {fields['lang']}\n"
         f"IP: {client_ip}\n"
     )
+    html_body = NOTIFICATION_HTML
+    for placeholder, value in (
+        ("{{first_name}}", fields["firstName"]),
+        ("{{last_name}}", fields["lastName"]),
+        ("{{email}}", fields["email"]),
+        ("{{language}}", LANG_NAMES[fields["lang"]]),
+        ("{{ip}}", client_ip),
+    ):
+        html_body = html_body.replace(placeholder, html.escape(value))
+    html_body = html_body.replace(
+        "{{message}}", html.escape(fields["message"]).replace("\n", "<br>")
+    )
+    msg.add_alternative(html_body, subtype="html")
     return msg
 
 

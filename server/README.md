@@ -37,9 +37,12 @@ manual equivalent of the installer is documented in the script itself.
 
 ## Updating the backend
 
-The auto-reply's HTML design lives in `templates/auto-reply.{en,el}.html`
-(`{{first_name}}` is the only placeholder; the plain-text fallback and
-subjects stay in `app.py`). To ship backend or template changes:
+The emails' HTML designs live in `templates/`: `auto-reply.{en,el}.html`
+for the visitor auto-reply (`{{first_name}}` is the only placeholder) and
+`notification.html` for the submission notification sent to CONTACT_TO
+(`{{first_name}}`, `{{last_name}}`, `{{email}}`, `{{message}}`,
+`{{language}}`, `{{ip}}`). The plain-text fallbacks and subjects stay in
+`app.py`. To ship backend or template changes:
 
 ```sh
 scp -r server/app.py server/templates moose-svr:~/moosegr-contact-setup/
