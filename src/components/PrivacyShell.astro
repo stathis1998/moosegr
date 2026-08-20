@@ -1,0 +1,33 @@
+---
+import Base from "@/layouts/Base.astro";
+
+import { PrivacyPage } from "@/components/PrivacyPage";
+import { CookieBanner } from "@/components/CookieBanner";
+import {
+  getTranslations,
+  otherLocale,
+  privacyPath,
+  type Locale,
+} from "@/lib/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const switchHref = privacyPath(otherLocale(locale));
+---
+
+<Base
+  locale={locale}
+  title={t.privacy.metaTitle}
+  description={t.privacy.metaDescription}
+  path={privacyPath(locale)}
+  enPath={privacyPath("en")}
+  elPath={privacyPath("el")}
+>
+  <PrivacyPage locale={locale} switchHref={switchHref} />
+  {/* client:only — visibility depends on localStorage, so never prerender. */}
+  <CookieBanner client:only="react" locale={locale} />
+</Base>

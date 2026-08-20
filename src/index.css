@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+/* Vendored from shadcn@4.1.1 dist/tailwind.css — the package itself was
+   dropped (its express/msw deps pinned an old `cookie` that broke Astro).
+   Run the shadcn CLI via `npx shadcn@latest` when adding components. */
+@import "./styles/shadcn-tailwind.css";
 @import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
@@ -153,7 +156,7 @@ html {
   scroll-behavior: smooth;
 }
 
-#root {
+body {
   background-color: var(--color-gray-50, #f9fafb);
 }
 

@@ -1,5 +1,39 @@
+---
+import "@/index.css";
+
+import type { Locale } from "@/lib/i18n";
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  /** OG/Twitter title & description — default to the page title/description. */
+  ogTitle?: string;
+  ogDescription?: string;
+  /** Canonical path of this page, e.g. "/", "/el/", "/privacy.html". */
+  path: string;
+  /** This page's URL in each language, for hreflang alternates. */
+  enPath: string;
+  elPath: string;
+}
+
+const {
+  locale,
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  path,
+  enPath,
+  elPath,
+} = Astro.props;
+
+const site = "https://moose.gr";
+const canonical = site + path;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon-white.svg" />
@@ -10,8 +44,9 @@
     <meta name="theme-color" content="#0e9384" />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18369329164"></script>
-    <script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18369329164"
+    ></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -65,47 +100,35 @@
       gtag('config', 'AW-18369329164');
     </script>
 
-    <title>Moose Software Solutions — Custom Web Apps, E-shops & CRMs</title>
-    <meta
-      name="description"
-      content="Moose Software Solutions builds high-performance web applications, custom Shopify e-shops, and tailored CRMs for forward-thinking companies. Based in Athens, Greece."
-    />
-    <link rel="canonical" href="https://moose.gr/" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={site + enPath} />
+    <link rel="alternate" hreflang="el" href={site + elPath} />
+    <link rel="alternate" hreflang="x-default" href={site + enPath} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Moose Software Solutions" />
-    <meta
-      property="og:title"
-      content="Moose Software Solutions — Custom Web Apps, E-shops & CRMs"
-    />
-    <meta
-      property="og:description"
-      content="High-performance web apps, custom Shopify e-shops, and tailored CRMs for forward-thinking companies."
-    />
-    <meta property="og:url" content="https://moose.gr/" />
-    <meta property="og:image" content="https://moose.gr/og-image.jpg" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site}/og-image.jpg`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
       content="Moose Software Solutions — Custom Software Solutions that Scale"
     />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={locale === "el" ? "el_GR" : "en_US"} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Moose Software Solutions — Custom Web Apps, E-shops & CRMs"
-    />
-    <meta
-      name="twitter:description"
-      content="High-performance web apps, custom Shopify e-shops, and tailored CRMs for forward-thinking companies."
-    />
-    <meta name="twitter:image" content="https://moose.gr/og-image.jpg" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={`${site}/og-image.jpg`} />
 
-    <script type="application/ld+json">
+    <script is:inline type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
@@ -131,7 +154,6 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <slot />
   </body>
 </html>

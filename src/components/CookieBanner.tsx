@@ -1,15 +1,17 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "@/lib/i18n";
+import { getTranslations, privacyPath, type Locale } from "@/lib/i18n";
 import {
   getStoredConsent,
   saveConsent,
   type ConsentChoice,
 } from "@/lib/consent";
 
-export function CookieBanner() {
-  const t = useTranslations();
+// Rendered with client:only — visibility depends on localStorage, so the
+// banner must never be part of the prerendered HTML.
+export function CookieBanner({ locale }: { locale: Locale }) {
+  const t = getTranslations(locale);
   const [visible, setVisible] = useState(() => getStoredConsent() === null);
 
   if (!visible) return null;
@@ -33,7 +35,7 @@ export function CookieBanner() {
             <p className="text-sm text-brand-300">
               {t.cookies.description}{" "}
               <a
-                href="/privacy.html"
+                href={privacyPath(locale)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-white transition-colors"

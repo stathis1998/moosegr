@@ -14,24 +14,24 @@ import awsLogo from "@/assets/logos/aws.svg";
 import stripeLogo from "@/assets/logos/stripe_simple.svg";
 
 import { SectionHeader } from "@/components/SectionHeader";
-import { useTranslations } from "@/lib/i18n";
+import { getTranslations, type Locale } from "@/lib/i18n";
 import { useCyclingHighlight } from "@/lib/useCyclingHighlight";
 
 const logos = [
-  { src: figmaLogo, alt: "Figma" },
-  { src: typescriptLogo, alt: "TypeScript" },
-  { src: reactLogo, alt: "React" },
-  { src: nextJSLogo, alt: "Next.js" },
-  { src: viteJSLogo, alt: "Vite.js" },
-  { src: tailwindLogo, alt: "Tailwind CSS" },
-  { src: nodejsLogo, alt: "Node.js" },
-  { src: pythonLogo, alt: "Python" },
-  { src: postgreSQLLogo, alt: "PostgreSQL" },
-  { src: shopifyLogo, alt: "Shopify" },
-  { src: dockerLogo, alt: "Docker" },
-  { src: githubLogo, alt: "GitHub" },
-  { src: awsLogo, alt: "AWS" },
-  { src: stripeLogo, alt: "Stripe" },
+  { src: figmaLogo.src, alt: "Figma" },
+  { src: typescriptLogo.src, alt: "TypeScript" },
+  { src: reactLogo.src, alt: "React" },
+  { src: nextJSLogo.src, alt: "Next.js" },
+  { src: viteJSLogo.src, alt: "Vite.js" },
+  { src: tailwindLogo.src, alt: "Tailwind CSS" },
+  { src: nodejsLogo.src, alt: "Node.js" },
+  { src: pythonLogo.src, alt: "Python" },
+  { src: postgreSQLLogo.src, alt: "PostgreSQL" },
+  { src: shopifyLogo.src, alt: "Shopify" },
+  { src: dockerLogo.src, alt: "Docker" },
+  { src: githubLogo.src, alt: "GitHub" },
+  { src: awsLogo.src, alt: "AWS" },
+  { src: stripeLogo.src, alt: "Stripe" },
 ];
 
 const HIGHLIGHT_DURATION_MS = 2000;
@@ -39,8 +39,8 @@ const HIGHLIGHT_DURATION_MS = 2000;
 const logoClass =
   "size-[88px] object-contain border border-gray-200 rounded-[12px] p-3 transition duration-500 hover:grayscale-0 hover:opacity-100";
 
-export function TechStack() {
-  const t = useTranslations();
+export function TechStack({ locale }: { locale: Locale }) {
+  const t = getTranslations(locale);
   const activeIndex = useCyclingHighlight(logos.length, HIGHLIGHT_DURATION_MS);
 
   return (

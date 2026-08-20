@@ -1,7 +1,7 @@
 import metricsBg from "@/assets/metrics-bg.webp";
 
 import { SectionHeader } from "@/components/SectionHeader";
-import { useTranslations } from "@/lib/i18n";
+import { getTranslations, type Locale } from "@/lib/i18n";
 
 function MetricItem({
   title,
@@ -22,8 +22,8 @@ function MetricItem({
   );
 }
 
-export function Metrics() {
-  const t = useTranslations();
+export function Metrics({ locale }: { locale: Locale }) {
+  const t = getTranslations(locale);
 
   return (
     <section
@@ -43,7 +43,7 @@ export function Metrics() {
 
         <div className="relative p-8 lg:p-16 rounded-2xl overflow-hidden">
           <img
-            src={metricsBg}
+            src={metricsBg.src}
             alt=""
             aria-hidden="true"
             loading="lazy"

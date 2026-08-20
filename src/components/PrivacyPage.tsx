@@ -1,11 +1,13 @@
-import { useEffect } from "react";
-
 import logoGreen from "@/assets/green-Logo.svg";
 
-import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
-import { useLanguage } from "@/context/language-context";
-import { useTranslations } from "@/lib/i18n";
+import {
+  getTranslations,
+  homePath,
+  localeLabel,
+  localePrefix,
+  type Locale,
+} from "@/lib/i18n";
 import { menuLinks } from "./constants/menu";
 
 const navFocus =
@@ -20,37 +22,27 @@ function PolicySection({ title, body }: { title: string; body: string }) {
   );
 }
 
-export function PrivacyPage() {
-  const { language, toggleLanguage } = useLanguage();
-  const t = useTranslations();
-
-  // The SPA shell ships the homepage head; swap in this page's metadata so
-  // both the prerendered privacy.html and the live tab carry the right tags.
-  useEffect(() => {
-    document.title = t.privacy.metaTitle;
-    const set = (selector: string, content: string) =>
-      document.querySelector(selector)?.setAttribute("content", content);
-    set('meta[name="description"]', t.privacy.metaDescription);
-    set('meta[property="og:title"]', t.privacy.metaTitle);
-    set('meta[property="og:description"]', t.privacy.metaDescription);
-    set('meta[property="og:url"]', "https://moose.gr/privacy.html");
-    set('meta[name="twitter:title"]', t.privacy.metaTitle);
-    set('meta[name="twitter:description"]', t.privacy.metaDescription);
-    document
-      .querySelector('link[rel="canonical"]')
-      ?.setAttribute("href", "https://moose.gr/privacy.html");
-  }, [t]);
+export function PrivacyPage({
+  locale,
+  switchHref,
+}: {
+  locale: Locale;
+  switchHref: string;
+}) {
+  const t = getTranslations(locale);
+  const language = localeLabel(locale);
+  const prefix = localePrefix(locale);
 
   return (
     <div className="max-w-360 mx-auto bg-white">
       <header>
         <div className="w-full max-w-7xl mx-auto h-20 px-4 lg:px-8 flex items-center justify-between gap-2">
           <a
-            href="/"
+            href={homePath(locale)}
             aria-label="Moose Software Solutions — Home"
             className={navFocus}
           >
-            <img src={logoGreen} alt="Moose Software Solutions" />
+            <img src={logoGreen.src} alt="Moose Software Solutions" />
           </a>
           <div className="flex items-center gap-8 text-base font-semibold text-label">
             <nav
@@ -60,21 +52,20 @@ export function PrivacyPage() {
               {menuLinks.map((id) => (
                 <a
                   key={id}
-                  href={`/#${id}`}
+                  href={`${prefix}/#${id}`}
                   className={`hover:text-brand transition-colors ${navFocus}`}
                 >
                   {t.nav[id]}
                 </a>
               ))}
             </nav>
-            <button
-              type="button"
-              onClick={toggleLanguage}
+            <a
+              href={switchHref}
               aria-label={`${t.nav.switchLanguage} ${language}`}
               className={`hover:text-brand transition-colors ${navFocus}`}
             >
               {language}
-            </button>
+            </a>
           </div>
         </div>
       </header>
@@ -137,8 +128,7 @@ export function PrivacyPage() {
         </div>
       </main>
 
-      <Footer />
-      <CookieBanner />
+      <Footer locale={locale} />
     </div>
   );
 }

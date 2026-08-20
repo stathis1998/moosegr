@@ -7,21 +7,20 @@ import { Textarea } from "./ui/textarea";
 import { Checkbox } from "./ui/checkbox";
 import { Button } from "./ui/button";
 import { SectionHeader } from "@/components/SectionHeader";
-import { useTranslations, type Translations } from "@/lib/i18n";
-import { useLanguage } from "@/context/language-context";
+import {
+  getTranslations,
+  privacyPath,
+  type Locale,
+  type Translations,
+} from "@/lib/i18n";
 import { trackLead } from "@/lib/analytics";
 
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
-/**
- * Feedback is held as a translation key rather than a resolved string, so a
- * language toggle re-renders the message in the new language.
- */
 type Feedback = { key: keyof Translations["contact"]["status"] } | null;
 
-export function ContactUs() {
-  const t = useTranslations();
-  const { language } = useLanguage();
+export function ContactUs({ locale }: { locale: Locale }) {
+  const t = getTranslations(locale);
   const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [feedback, setFeedback] = useState<Feedback>(null);
@@ -53,7 +52,7 @@ export function ContactUs() {
           email: String(formData.get("email") ?? ""),
           message: String(formData.get("message") ?? ""),
           website: String(formData.get("website") ?? ""), // honeypot
-          lang: language === "EN" ? "en" : "el",
+          lang: locale,
         }),
       });
       const data = await response.json();
@@ -230,7 +229,7 @@ export function ContactUs() {
                 <FieldLabel htmlFor="privacy">
                   {t.contact.form.privacyBefore}
                   <a
-                    href="/privacy.html"
+                    href={privacyPath(locale)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline"

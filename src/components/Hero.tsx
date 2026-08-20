@@ -12,19 +12,23 @@ import logo from "@/assets/Logo wrap.svg";
 import logoGreen from "@/assets/green-Logo.svg";
 
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/context/language-context";
-import { scrollToContact } from "@/lib/contact";
 import { trackLead } from "@/lib/analytics";
-import { useTranslations } from "@/lib/i18n";
+import { getTranslations, localeLabel, type Locale } from "@/lib/i18n";
 import { menuLinks } from "./constants/menu";
 
 const navFocus =
   "rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-white";
 
-export function Hero() {
+export function Hero({
+  locale,
+  switchHref,
+}: {
+  locale: Locale;
+  switchHref: string;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { language, toggleLanguage } = useLanguage();
-  const t = useTranslations();
+  const t = getTranslations(locale);
+  const language = localeLabel(locale);
 
   const pendingSection = useRef<string | null>(null);
 
@@ -45,12 +49,12 @@ export function Hero() {
         <source
           media="(min-width:1024px)"
           type="image/webp"
-          srcSet={heroDesktopWebp}
+          srcSet={heroDesktopWebp.src}
         />
-        <source media="(min-width:1024px)" srcSet={heroDesktopJpg} />
-        <source type="image/webp" srcSet={heroMobileWebp} />
+        <source media="(min-width:1024px)" srcSet={heroDesktopJpg.src} />
+        <source type="image/webp" srcSet={heroMobileWebp.src} />
         <img
-          src={heroMobileJpg}
+          src={heroMobileJpg.src}
           alt=""
           aria-hidden="true"
           fetchPriority="high"
@@ -59,7 +63,7 @@ export function Hero() {
       </picture>
       <div className="relative z-10 flex flex-col h-full">
         <nav className="w-full max-w-7xl mx-auto h-20 pl-4 pr-3 lg:px-8 flex items-center justify-between gap-2">
-          <img src={logo} alt="Moose Software Solutions" />
+          <img src={logo.src} alt="Moose Software Solutions" />
           <div className="hidden md:flex items-center gap-8 text-brand-200 font-semibold text-base leading-6">
             {menuLinks.map((id) => (
               <button
@@ -70,14 +74,13 @@ export function Hero() {
                 {t.nav[id]}
               </button>
             ))}
-            <button
-              type="button"
-              onClick={toggleLanguage}
+            <a
+              href={switchHref}
               aria-label={`${t.nav.switchLanguage} ${language}`}
               className={`ml-4 hover:text-white transition-colors ${navFocus}`}
             >
               {language}
-            </button>
+            </a>
           </div>
 
           <Dialog.Root open={menuOpen} onOpenChange={setMenuOpen}>
@@ -109,16 +112,15 @@ export function Hero() {
               >
                 <Dialog.Title className="sr-only">Menu</Dialog.Title>
                 <div className="h-20 pl-4 pr-3 flex items-center justify-between">
-                  <img src={logoGreen} alt="Moose Software Solutions" />
+                  <img src={logoGreen.src} alt="Moose Software Solutions" />
                   <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={toggleLanguage}
+                    <a
+                      href={switchHref}
                       aria-label={`${t.nav.switchLanguage} ${language}`}
                       className="p-2 font-semibold text-ink hover:text-brand transition-colors rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand"
                     >
                       {language}
-                    </button>
+                    </a>
                     <Dialog.Close
                       aria-label={t.nav.closeMenu}
                       className="p-2 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand"
@@ -196,13 +198,13 @@ export function Hero() {
               {t.hero.subtitleAfter}
             </div>
             <div className="w-full lg:w-auto pt-4">
+              {/* Click behavior (focus + border flash) comes from the global
+                  #contact handler in home-interactions.ts. */}
               <Button
                 asChild
                 className="cta-pulse w-full lg:w-auto bg-white font-semibold text-ink-muted shadow-xs py-3.5 lg:px-6 hover:bg-gray-200"
               >
-                <a href="#contact" onClick={scrollToContact}>
-                  {t.hero.cta}
-                </a>
+                <a href="#contact">{t.hero.cta}</a>
               </Button>
             </div>
           </div>

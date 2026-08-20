@@ -4,15 +4,15 @@ import primeNavLogo from "@/assets/prime-nav-logo.svg";
 import vetLogo from "@/assets/vet-logo.svg";
 import fantasiaLogo from "@/assets/fantasia-logo.webp";
 
-import { useTranslations } from "@/lib/i18n";
+import { getTranslations, type Locale } from "@/lib/i18n";
 import { useCyclingHighlight } from "@/lib/useCyclingHighlight";
 
 const logos = [
-  { src: iconstormLogo, alt: "Iconstorm" },
-  { src: kyklomaLogo, alt: "Kykloma" },
-  { src: primeNavLogo, alt: "Prime Nav" },
-  { src: vetLogo, alt: "Vet" },
-  { src: fantasiaLogo, alt: "Fantasia" },
+  { src: iconstormLogo.src, alt: "Iconstorm" },
+  { src: kyklomaLogo.src, alt: "Kykloma" },
+  { src: primeNavLogo.src, alt: "Prime Nav" },
+  { src: vetLogo.src, alt: "Vet" },
+  { src: fantasiaLogo.src, alt: "Fantasia" },
 ];
 
 const HIGHLIGHT_DURATION_MS = 2000;
@@ -20,8 +20,8 @@ const HIGHLIGHT_DURATION_MS = 2000;
 const logoClass =
   "h-10 lg:h-12 w-auto max-w-full object-contain transition duration-500 hover:grayscale-0 hover:opacity-100";
 
-export function SocialProof() {
-  const t = useTranslations();
+export function SocialProof({ locale }: { locale: Locale }) {
+  const t = getTranslations(locale);
   const activeIndex = useCyclingHighlight(logos.length, HIGHLIGHT_DURATION_MS);
 
   return (

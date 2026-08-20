@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react";
+import { useSyncExternalStore, type ComponentProps } from "react";
 
 import {
   Accordion,
@@ -15,7 +15,12 @@ import retailStoreDesktop from "@/assets/retail-store-desktop.jpg";
 import vetDesktop from "@/assets/vet-desktop.jpg";
 
 import { SectionHeader } from "@/components/SectionHeader";
-import { useTranslations } from "@/lib/i18n";
+import { getTranslations, type Locale } from "@/lib/i18n";
+import {
+  getSelectedProject,
+  selectProject,
+  subscribeSelectedProject,
+} from "@/lib/select-project";
 
 /**
  * Copy lives in `translations.work.projects`, keyed by `value`.
@@ -24,22 +29,22 @@ import { useTranslations } from "@/lib/i18n";
 const projectImages = [
   {
     value: "shipping",
-    image: primeNav,
-    desktopImage: primeNavDesktop,
+    image: primeNav.src,
+    desktopImage: primeNavDesktop.src,
     size: 100,
     desktopSize: 100,
   },
   {
     value: "ecommerce",
-    image: eshopPhone,
-    desktopImage: retailStoreDesktop,
+    image: eshopPhone.src,
+    desktopImage: retailStoreDesktop.src,
     size: 100,
     desktopSize: 110,
   },
   {
     value: "veterinary",
-    image: veterinary,
-    desktopImage: vetDesktop,
+    image: veterinary.src,
+    desktopImage: vetDesktop.src,
     size: 100,
     desktopSize: 100,
   },
@@ -62,14 +67,17 @@ function ProjectImage({
   );
 }
 
-export function Work({
-  value,
-  onValueChange,
-}: {
-  value: string;
-  onValueChange: (value: string) => void;
-}) {
-  const t = useTranslations();
+export function Work({ locale }: { locale: Locale }) {
+  const t = getTranslations(locale);
+
+  // Selection lives in a window-level store (see select-project.ts) so the
+  // static Features section can drive it; the snapshot read also picks up a
+  // click that landed before this island hydrated.
+  const value = useSyncExternalStore(
+    subscribeSelectedProject,
+    () => getSelectedProject() ?? "shipping",
+    () => "shipping",
+  );
 
   const projects = projectImages.map((project) => ({
     ...project,
@@ -97,7 +105,7 @@ export function Work({
             if (!next && window.matchMedia("(min-width: 768px)").matches) {
               return;
             }
-            onValueChange(next);
+            selectProject(next);
           }}
           className="px-4 md:pl-28 py-10"
         >

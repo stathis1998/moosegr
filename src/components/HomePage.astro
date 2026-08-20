@@ -1,0 +1,64 @@
+---
+import Base from "@/layouts/Base.astro";
+
+import { Separator } from "@/components/ui/separator";
+
+import { SocialProof } from "@/components/SocialProof";
+import { Features } from "@/components/Features";
+import { Metrics } from "@/components/Metrics";
+import { Hero } from "@/components/Hero";
+import { TechStack } from "@/components/TechStack";
+import { Work } from "@/components/Work";
+import { CTASection } from "@/components/CTASection";
+import { ContactUs } from "@/components/ContactUs";
+import { Footer } from "@/components/Footer";
+import { CookieBanner } from "@/components/CookieBanner";
+import {
+  getTranslations,
+  homePath,
+  otherLocale,
+  type Locale,
+} from "@/lib/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const switchHref = homePath(otherLocale(locale));
+---
+
+<Base
+  locale={locale}
+  title={t.meta.title}
+  description={t.meta.description}
+  ogDescription={t.meta.ogDescription}
+  path={homePath(locale)}
+  enPath={homePath("en")}
+  elPath={homePath("el")}
+>
+  <div class="max-w-360 mx-auto bg-white">
+    {/* Above the fold; hydrates for the mobile menu dialog. */}
+    <Hero client:load locale={locale} switchHref={switchHref} />
+    {/* client:visible islands only run their logo-highlight timers on screen. */}
+    <SocialProof client:visible locale={locale} />
+    <Features locale={locale} />
+    <Metrics locale={locale} />
+    <TechStack client:visible locale={locale} />
+    <div class="w-full max-w-7xl mx-auto px-4 lg:px-8">
+      <Separator className="data-horizontal:h-0.5 bg-brand-accent" />
+    </div>
+    {/* client:idle so it's ready before Features' "see projects" clicks. */}
+    <Work client:idle locale={locale} />
+    <CTASection locale={locale} />
+    <ContactUs client:visible locale={locale} />
+    <Footer locale={locale} />
+    {/* client:only — visibility depends on localStorage, so never prerender. */}
+    <CookieBanner client:only="react" locale={locale} />
+  </div>
+</Base>
+
+<script>
+  import "@/lib/home-interactions";
+</script>

@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://moose.gr/</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moose.gr/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://moose.gr/el/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moose.gr/"/>
+  </url>
+  <url>
+    <loc>https://moose.gr/el/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moose.gr/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://moose.gr/el/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moose.gr/"/>
   </url>
   <url>
     <loc>https://moose.gr/privacy.html</loc>
     <lastmod>2026-08-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moose.gr/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://moose.gr/el/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moose.gr/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://moose.gr/el/privacy.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moose.gr/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://moose.gr/el/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moose.gr/privacy.html"/>
   </url>
 </urlset>

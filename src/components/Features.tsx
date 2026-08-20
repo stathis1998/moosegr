@@ -11,9 +11,10 @@ import shopifyLaptop from "@/assets/shopify-laptop.jpg";
 import womanCoffee from "@/assets/woman-coffee.jpg";
 
 import { SectionHeader } from "@/components/SectionHeader";
-import { useTranslations } from "@/lib/i18n";
+import { getTranslations, type Locale } from "@/lib/i18n";
 
 function FeatureItem({
+  locale,
   title,
   description,
   items,
@@ -21,10 +22,10 @@ function FeatureItem({
   image,
   altImage,
   projectValue,
-  onSelectProject,
   reverse = false,
   className = "",
 }: {
+  locale: Locale;
   title: string;
   description: string;
   items: string[];
@@ -32,11 +33,10 @@ function FeatureItem({
   altImage: string;
   icon: React.ReactNode;
   projectValue: string;
-  onSelectProject: (value: string) => void;
   reverse?: boolean;
   className?: string;
 }) {
-  const t = useTranslations();
+  const t = getTranslations(locale);
 
   return (
     <div
@@ -63,9 +63,11 @@ function FeatureItem({
               </li>
             ))}
           </ul>
+          {/* Rendered statically — the click is handled by the global
+              [data-select-project] listener in home-interactions.ts. */}
           <button
             type="button"
-            onClick={() => onSelectProject(projectValue)}
+            data-select-project={projectValue}
             className="inline-flex items-center gap-2 text-brand-strong font-semibold hover:text-brand-hover transition-colors rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             {t.features.seeProjects}
@@ -80,12 +82,8 @@ function FeatureItem({
   );
 }
 
-export function Features({
-  onSelectProject,
-}: {
-  onSelectProject: (value: string) => void;
-}) {
-  const t = useTranslations();
+export function Features({ locale }: { locale: Locale }) {
+  const t = getTranslations(locale);
 
   return (
     <section
@@ -104,37 +102,37 @@ export function Features({
       </div>
 
       <FeatureItem
+        locale={locale}
         title={t.features.web.title}
         description={t.features.web.description}
         items={t.features.web.items}
-        image={womanOnScreen}
+        image={womanOnScreen.src}
         altImage={t.features.web.imageAlt}
         icon={<CodeBrowser color="#0E9384" />}
         projectValue="shipping"
-        onSelectProject={onSelectProject}
       />
 
       <FeatureItem
+        locale={locale}
         title={t.features.eshop.title}
         description={t.features.eshop.description}
         items={t.features.eshop.items}
-        image={shopifyLaptop}
+        image={shopifyLaptop.src}
         altImage={t.features.eshop.imageAlt}
         icon={<ShoppingBag02 color="#0E9384" />}
         projectValue="ecommerce"
-        onSelectProject={onSelectProject}
         reverse
       />
 
       <FeatureItem
+        locale={locale}
         title={t.features.crm.title}
         description={t.features.crm.description}
         items={t.features.crm.items}
-        image={womanCoffee}
+        image={womanCoffee.src}
         altImage={t.features.crm.imageAlt}
         icon={<Users01 color="#0E9384" />}
         projectValue="veterinary"
-        onSelectProject={onSelectProject}
       />
     </section>
   );
