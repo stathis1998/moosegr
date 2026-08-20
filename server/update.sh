@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# Update the deployed backend (app.py + email templates) from the staged
-# copy in this directory, without touching the env file or nginx.
-# Run: ssh -t moose-svr "sudo bash ~/moosegr-contact-setup/update.sh"
+# Update the deployed backend (app.py + email templates) from this
+# directory, without touching the env file or nginx. Normally run from the
+# server's git clone after a pull:
+#   ssh moose-svr "cd ~/moosegr && git pull"
+#   ssh -t moose-svr "sudo bash ~/moosegr/server/update.sh"
 set -euo pipefail
 
 DIR="$(cd "$(dirname "$0")" && pwd)"

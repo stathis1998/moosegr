@@ -42,14 +42,15 @@ for the visitor auto-reply (`{{first_name}}` is the only placeholder) and
 `notification.html` for the submission notification sent to CONTACT_TO
 (`{{first_name}}`, `{{last_name}}`, `{{email}}`, `{{message}}`,
 `{{language}}`, `{{ip}}`). The plain-text fallbacks and subjects stay in
-`app.py`. To ship backend or template changes:
+`app.py`. To ship backend or template changes, push to GitHub, then pull
+the server's clone (`~/moosegr`) and run the updater from it:
 
 ```sh
-scp -r server/app.py server/templates moose-svr:~/moosegr-contact-setup/
-ssh -t moose-svr "sudo bash ~/moosegr-contact-setup/update.sh"
+ssh moose-svr "cd ~/moosegr && git pull"
+ssh -t moose-svr "sudo bash ~/moosegr/server/update.sh"
 ```
 
-The site's zip-based deploy to /var/www/moosegr is unrelated and unchanged.
+The site's deploy to /var/www/moosegr is unrelated and unchanged.
 
 ## Local development
 
