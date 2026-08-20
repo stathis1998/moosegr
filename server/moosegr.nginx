@@ -1,0 +1,100 @@
+# moose.gr — HTTPS site config.
+# Source of truth: server/moosegr.nginx in the moosegr repo; installed at
+# /etc/nginx/sites-available/moosegr by server/setup.sh.
+# Requires: /etc/letsencrypt/live/moose.gr/{fullchain,privkey}.pem
+#           /etc/nginx/conf.d/moosegr-contact-ratelimit.conf (contact_form zone)
+# nginx 1.24 syntax (listen ... ssl http2).
+
+# ── HTTP :80 — redirect everything to the canonical HTTPS host.
+#    ACME challenge path stays reachable for certbot renewals.
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name moose.gr www.moose.gr;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/moosegr;
+        allow all;
+    }
+
+    location / {
+        return 301 https://moose.gr$request_uri;
+    }
+}
+
+# ── HTTPS :443 — www -> non-www canonical redirect (matches old netlify.toml).
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name www.moose.gr;
+
+    ssl_certificate     /etc/letsencrypt/live/moose.gr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/moose.gr/privkey.pem;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache   shared:SSL:10m;
+    ssl_session_timeout 1d;
+    ssl_session_tickets off;
+
+    return 301 https://moose.gr$request_uri;
+}
+
+# ── HTTPS :443 — canonical site.
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name moose.gr;
+
+    ssl_certificate     /etc/letsencrypt/live/moose.gr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/moose.gr/privkey.pem;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache   shared:SSL:10m;
+    ssl_session_timeout 1d;
+    ssl_session_tickets off;
+
+    add_header Strict-Transport-Security "max-age=31536000" always;
+
+    root /var/www/moosegr;
+    index index.html;
+    server_tokens off;
+
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 256;
+    gzip_types text/plain text/css application/javascript application/json image/svg+xml font/woff2;
+
+    # Contact form backend (moosegr-contact.service on 127.0.0.1:8321).
+    location = /api/contact {
+        limit_req zone=contact_form burst=3 nodelay;
+        limit_req_status 429;
+        error_page 429 = @contact_limited;
+        client_max_body_size 32k;
+        proxy_pass http://127.0.0.1:8321;
+        proxy_http_version 1.1;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_connect_timeout 5s;
+        proxy_read_timeout 30s;      # covers two SMTP sends at 10s timeout each
+    }
+
+    location @contact_limited {
+        default_type application/json;
+        return 429 '{"success":false}';
+    }
+
+    # Content-hashed assets — cache forever.
+    location /assets/ {
+        try_files $uri =404;
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # Entrypoint must never be cached, or new deploys won't be picked up.
+    location = /index.html {
+        add_header Cache-Control "no-cache";
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}

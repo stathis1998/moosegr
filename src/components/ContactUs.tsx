@@ -8,33 +8,25 @@ import { Checkbox } from "./ui/checkbox";
 import { Button } from "./ui/button";
 import { SectionHeader } from "@/components/SectionHeader";
 import { useTranslations, type Translations } from "@/lib/i18n";
+import { useLanguage } from "@/context/language-context";
 import { trackLead } from "@/lib/analytics";
-
-const WEB3FORMS_ACCESS_KEY = "bee09bdb-369c-4d61-8d96-89edc7e78f75";
 
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
 /**
  * Feedback is held as a translation key rather than a resolved string, so a
- * language toggle re-renders the message in the new language. A `raw` message
- * is the untranslatable text the form API hands back on rejection.
+ * language toggle re-renders the message in the new language.
  */
-type Feedback =
-  | { key: keyof Translations["contact"]["status"] }
-  | { raw: string }
-  | null;
+type Feedback = { key: keyof Translations["contact"]["status"] } | null;
 
 export function ContactUs() {
   const t = useTranslations();
+  const { language } = useLanguage();
   const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [feedback, setFeedback] = useState<Feedback>(null);
 
-  const feedbackText = !feedback
-    ? ""
-    : "key" in feedback
-      ? t.contact.status[feedback.key]
-      : feedback.raw;
+  const feedbackText = feedback ? t.contact.status[feedback.key] : "";
 
   const onSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -50,18 +42,19 @@ export function ContactUs() {
     setFeedback(null);
 
     const formData = new FormData(form);
-    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-    // Subject and name are read by us, not the visitor, so they stay in English.
-    formData.append("subject", "New contact request from the website");
-    formData.append(
-      "name",
-      `${formData.get("firstName") ?? ""} ${formData.get("lastName") ?? ""}`.trim(),
-    );
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: String(formData.get("firstName") ?? ""),
+          lastName: String(formData.get("lastName") ?? ""),
+          email: String(formData.get("email") ?? ""),
+          message: String(formData.get("message") ?? ""),
+          website: String(formData.get("website") ?? ""), // honeypot
+          lang: language === "EN" ? "en" : "el",
+        }),
       });
       const data = await response.json();
 
@@ -75,9 +68,7 @@ export function ContactUs() {
         });
       } else {
         setStatus("error");
-        setFeedback(
-          data.message ? { raw: data.message } : { key: "genericError" },
-        );
+        setFeedback({ key: "genericError" });
       }
     } catch {
       setStatus("error");
@@ -150,6 +141,17 @@ export function ContactUs() {
           onSubmit={onSubmit}
           className="scroll-mt-4 md:bg-surface md:rounded-2xl md:p-8"
         >
+          {/* Honeypot: humans never see it; bots that fill it are dropped
+              server-side. Clipped rather than display:none, which some
+              bots detect. */}
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="sr-only"
+          />
           <FieldSet>
             <FieldGroup>
               <div className="grid gap-7 sm:grid-cols-2 sm:gap-6">
