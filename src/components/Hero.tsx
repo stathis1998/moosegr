@@ -185,8 +185,9 @@ export function Hero({
         </nav>
         <div className="flex-1 flex items-start pt-8 lg:pt-24">
           <div className="w-full max-w-7xl mx-auto flex flex-col items-start text-left lg:items-center lg:text-center gap-8 px-4 lg:px-8">
-            <div className="flex flex-col gap-4 lg:gap-6 max-w-4xl">
-              <h1 className="text-white font-semibold text-4xl leading-tight tracking-[-0.02em] lg:text-6xl xl:text-7xl">
+            {/* Wide enough for the Greek title to wrap at two lines on xl. */}
+            <div className="flex flex-col gap-4 lg:gap-6 max-w-6xl">
+              <h1 className="text-white font-semibold text-4xl leading-tight tracking-[-0.02em] text-balance lg:text-6xl xl:text-7xl">
                 {t.hero.title}
               </h1>
             </div>
