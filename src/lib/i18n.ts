@@ -19,6 +19,16 @@ export function getTranslations(locale: Locale): Translations {
   return locale === "el" ? el : en;
 }
 
+/**
+ * Homepage head metadata. Accessed through this typed helper (used by
+ * HomePage.astro) so a missing/renamed `meta` block in translations.json
+ * fails `tsc` — .astro templates themselves are not type-checked, and a
+ * bad key there would otherwise only crash at prerender time.
+ */
+export function getMeta(locale: Locale): Translations["meta"] {
+  return getTranslations(locale).meta;
+}
+
 /** Site-root-relative URL prefix for a locale's pages: "" for en, "/el" for el. */
 export function localePrefix(locale: Locale): string {
   return locale === "el" ? "/el" : "";

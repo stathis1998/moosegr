@@ -1,5 +1,10 @@
 {
   "en": {
+    "meta": {
+      "title": "Moose Software Solutions — Custom Web Apps, E-shops & CRMs",
+      "description": "Moose Software Solutions builds high-performance web applications, custom Shopify e-shops, and tailored CRMs for forward-thinking companies. Based in Athens, Greece.",
+      "ogDescription": "High-performance web apps, custom Shopify e-shops, and tailored CRMs for forward-thinking companies."
+    },
     "nav": {
       "services": "Services",
       "process": "Process",
@@ -190,6 +195,11 @@
     }
   },
   "el": {
+    "meta": {
+      "title": "Moose Software Solutions — Custom Web Εφαρμογές, E-shops & CRM",
+      "description": "Η Moose Software Solutions δημιουργεί web εφαρμογές υψηλών επιδόσεων, custom Shopify e-shops και εξατομικευμένα CRM για επιχειρήσεις με όραμα. Με έδρα την Αθήνα.",
+      "ogDescription": "Web εφαρμογές υψηλών επιδόσεων, custom Shopify e-shops και εξατομικευμένα CRM για επιχειρήσεις με όραμα."
+    },
     "nav": {
       "services": "Υπηρεσίες",
       "process": "Διαδικασία",

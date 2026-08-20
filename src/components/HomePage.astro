@@ -13,27 +13,22 @@ import { CTASection } from "@/components/CTASection";
 import { ContactUs } from "@/components/ContactUs";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
-import {
-  getTranslations,
-  homePath,
-  otherLocale,
-  type Locale,
-} from "@/lib/i18n";
+import { getMeta, homePath, otherLocale, type Locale } from "@/lib/i18n";
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const t = getTranslations(locale);
+const meta = getMeta(locale);
 const switchHref = homePath(otherLocale(locale));
 ---
 
 <Base
   locale={locale}
-  title={t.meta.title}
-  description={t.meta.description}
-  ogDescription={t.meta.ogDescription}
+  title={meta.title}
+  description={meta.description}
+  ogDescription={meta.ogDescription}
   path={homePath(locale)}
   enPath={homePath("en")}
   elPath={homePath("el")}
