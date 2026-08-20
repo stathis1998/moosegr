@@ -17,7 +17,7 @@ export function CTASection() {
         <div className="space-y-2 lg:space-y-0 lg:flex lg:gap-3 lg:shrink-0">
           <Button
             onClick={scrollToContact}
-            className="bg-brand w-full lg:w-auto lg:px-5 hover:bg-brand-hover"
+            className="cta-pulse cta-pulse-brand bg-brand w-full lg:w-auto lg:px-5 hover:bg-brand-hover"
           >
             {t.cta.button}
           </Button>

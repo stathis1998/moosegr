@@ -188,7 +188,7 @@ export function Hero() {
             <div className="w-full lg:w-auto pt-4">
               <Button
                 asChild
-                className="w-full lg:w-auto bg-white font-semibold text-ink-muted shadow-xs py-3.5 lg:px-6 hover:bg-gray-200"
+                className="cta-pulse w-full lg:w-auto bg-white font-semibold text-ink-muted shadow-xs py-3.5 lg:px-6 hover:bg-gray-200"
               >
                 <a href="#contact" onClick={scrollToContact}>
                   {t.hero.cta}

@@ -69,7 +69,7 @@ function FeatureItem({
             className="inline-flex items-center gap-2 text-brand-strong font-semibold hover:text-brand-hover transition-colors rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
           >
             {t.features.seeProjects}
-            <ArrowRight size={20} />
+            <ArrowRight size={20} className="arrow-nudge" />
           </button>
         </div>
       </div>

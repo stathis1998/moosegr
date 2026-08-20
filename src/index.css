@@ -163,6 +163,45 @@ a[href] {
   cursor: pointer;
 }
 
+@keyframes cta-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--cta-pulse-color, rgba(255, 255, 255, 0.45));
+  }
+  60%,
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+
+.cta-pulse {
+  animation: cta-pulse 3s ease-out infinite;
+}
+
+.cta-pulse-brand {
+  --cta-pulse-color: rgba(14, 147, 132, 0.4);
+}
+
+@keyframes arrow-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.arrow-nudge {
+  animation: arrow-nudge 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-pulse,
+  .arrow-nudge {
+    animation: none;
+  }
+}
+
 @keyframes flash-border {
   0% {
     outline-color: rgba(21, 183, 158, 0);
