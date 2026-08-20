@@ -130,7 +130,56 @@
       }
     },
     "footer": {
-      "copyright": "© 2026 Moose Software Solutions. All rights reserved."
+      "copyright": "© 2026 Moose Software Solutions. All rights reserved.",
+      "privacy": "Privacy Policy"
+    },
+    "privacy": {
+      "metaTitle": "Privacy Policy — Moose Software Solutions",
+      "metaDescription": "How Moose Software Solutions collects, uses, and protects personal data submitted through moose.gr.",
+      "eyebrow": "Current as of 3 August 2026",
+      "title": "Privacy Policy",
+      "leadBefore": "",
+      "leadCompany": "Moose Software Solutions EE",
+      "leadAfter": " is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and protect the information you provide when you submit a request through the contact form on our website.",
+      "collect": {
+        "title": "What information do we collect?",
+        "body": "When you use our contact form, we collect the following personal data: First and Last Name, Email Address, Phone Number, and any personal information you voluntarily include in the message field."
+      },
+      "use": {
+        "title": "How do we use your information?",
+        "body": "We collect this data solely for the purpose of reviewing your project inquiry or question, and contacting you to provide the requested information, a proposal, or support. Under the General Data Protection Regulation (GDPR), the legal bases we rely on are your explicit consent (provided when submitting the form) and the necessity of taking pre-contractual steps at your request."
+      },
+      "share": {
+        "title": "Do we share your information?",
+        "body": "We do not sell, rent, or trade your personal data. Messages submitted through our contact form are processed on our own server and delivered to us — along with a confirmation email to you — through our email service provider (Google Workspace). Google is legally obligated to protect your data and only processes it according to our strict instructions."
+      },
+      "cookies": {
+        "title": "Do we use cookies?",
+        "p1Before": "Our website uses Google Analytics to understand how visitors use the site (pages viewed, approximate location, device type) so we can improve it. These analytics cookies are set ",
+        "p1Strong": "only if you accept them",
+        "p1After": " through the cookie banner shown on your first visit; until then, and if you decline, no analytics cookies are stored on your device. We use Google Consent Mode, so your choice is passed to Google and respected by its tags.",
+        "p2": "You can change your mind at any time by clearing this site's cookies and site data in your browser, after which the banner will appear again. Strictly necessary storage — a single entry remembering your cookie choice — is kept regardless, as it is required to honor your preference."
+      },
+      "retention": {
+        "title": "How long do we keep your information?",
+        "body": "We will only retain your personal data for as long as necessary to fulfill the purposes we collected it for. Inquiries that do not result in an active business relationship will be securely deleted after 6 months. If you become a client, your data will be retained for the duration of our business relationship and as required by Greek tax and commercial law."
+      },
+      "security": {
+        "title": "How do we keep your information safe?",
+        "body": "Moose Software Solutions EE acts as the primary data controller. We implement appropriate technical and organizational security measures to ensure your personal data is protected against unauthorized access, loss, or misuse throughout its lifecycle."
+      },
+      "rights": {
+        "title": "What are your privacy rights?",
+        "body": "Under GDPR, you have the right to request copies of your personal data, request that we correct any inaccurate or incomplete information, or request that we erase your personal data under certain conditions. You can also withdraw your consent at any time without affecting the lawfulness of processing based on consent before its withdrawal."
+      },
+      "contact": {
+        "title": "How can you contact us about this policy?",
+        "intro": "If you have any questions or wish to exercise your data protection rights, you can reach us through the following methods:",
+        "emailBefore": "By email at ",
+        "emailAfter": ".",
+        "mail": "By mail at our registered business address at Leoforos Kifisias 44, Marousi 151 25, Athens, Greece.",
+        "response": "We have one month to respond to any formal requests regarding your data rights."
+      }
     },
     "cookies": {
       "title": "We value your privacy",
@@ -271,7 +320,56 @@
       }
     },
     "footer": {
-      "copyright": "© 2026 Moose Software Solutions. Με επιφύλαξη παντός δικαιώματος."
+      "copyright": "© 2026 Moose Software Solutions. Με επιφύλαξη παντός δικαιώματος.",
+      "privacy": "Πολιτική Απορρήτου"
+    },
+    "privacy": {
+      "metaTitle": "Πολιτική Απορρήτου — Moose Software Solutions",
+      "metaDescription": "Πώς η Moose Software Solutions συλλέγει, χρησιμοποιεί και προστατεύει τα προσωπικά δεδομένα που υποβάλλονται μέσω του moose.gr.",
+      "eyebrow": "Ισχύει από 3 Αυγούστου 2026",
+      "title": "Πολιτική Απορρήτου",
+      "leadBefore": "Η ",
+      "leadCompany": "Moose Software Solutions Ε.Ε.",
+      "leadAfter": " δεσμεύεται να προστατεύει τα προσωπικά σας δεδομένα. Η παρούσα Πολιτική Απορρήτου εξηγεί πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τις πληροφορίες που παρέχετε όταν υποβάλλετε ένα αίτημα μέσω της φόρμας επικοινωνίας στον ιστότοπό μας.",
+      "collect": {
+        "title": "Ποιες πληροφορίες συλλέγουμε;",
+        "body": "Όταν χρησιμοποιείτε τη φόρμα επικοινωνίας μας, συλλέγουμε τα ακόλουθα προσωπικά δεδομένα: όνομα και επώνυμο, διεύθυνση email, αριθμό τηλεφώνου, καθώς και όποια προσωπική πληροφορία συμπεριλάβετε οικειοθελώς στο πεδίο του μηνύματος."
+      },
+      "use": {
+        "title": "Πώς χρησιμοποιούμε τις πληροφορίες σας;",
+        "body": "Συλλέγουμε αυτά τα δεδομένα αποκλειστικά για να εξετάσουμε το αίτημα ή την ερώτησή σας και να επικοινωνήσουμε μαζί σας, παρέχοντας τις πληροφορίες που ζητήσατε, μια προσφορά ή υποστήριξη. Σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (ΓΚΠΔ), οι νομικές βάσεις στις οποίες στηριζόμαστε είναι η ρητή συγκατάθεσή σας (η οποία παρέχεται κατά την υποβολή της φόρμας) και η αναγκαιότητα λήψης μέτρων πριν από τη σύναψη σύμβασης, κατόπιν αιτήματός σας."
+      },
+      "share": {
+        "title": "Μοιραζόμαστε τις πληροφορίες σας;",
+        "body": "Δεν πουλάμε, δεν ενοικιάζουμε και δεν ανταλλάσσουμε τα προσωπικά σας δεδομένα. Τα μηνύματα που υποβάλλονται μέσω της φόρμας επικοινωνίας επεξεργάζονται στον δικό μας διακομιστή και παραδίδονται σε εμάς — μαζί με ένα email επιβεβαίωσης προς εσάς — μέσω του παρόχου υπηρεσιών email μας (Google Workspace). Η Google δεσμεύεται νομικά να προστατεύει τα δεδομένα σας και τα επεξεργάζεται μόνο σύμφωνα με τις αυστηρές οδηγίες μας."
+      },
+      "cookies": {
+        "title": "Χρησιμοποιούμε cookies;",
+        "p1Before": "Ο ιστότοπός μας χρησιμοποιεί το Google Analytics για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπο (σελίδες που προβλήθηκαν, κατά προσέγγιση τοποθεσία, τύπος συσκευής), ώστε να τον βελτιώνουμε. Αυτά τα cookies ανάλυσης αποθηκεύονται ",
+        "p1Strong": "μόνο εφόσον τα αποδεχτείτε",
+        "p1After": " μέσω του banner cookies που εμφανίζεται κατά την πρώτη σας επίσκεψη· μέχρι τότε, και εφόσον τα απορρίψετε, κανένα cookie ανάλυσης δεν αποθηκεύεται στη συσκευή σας. Χρησιμοποιούμε το Google Consent Mode, ώστε η επιλογή σας να μεταφέρεται στην Google και να γίνεται σεβαστή από τα tags της.",
+        "p2": "Μπορείτε να αλλάξετε γνώμη οποιαδήποτε στιγμή διαγράφοντας τα cookies και τα δεδομένα ιστότοπου αυτής της σελίδας από τον browser σας· έπειτα το banner θα εμφανιστεί ξανά. Η απολύτως απαραίτητη αποθήκευση — μία μόνο εγγραφή που θυμάται την επιλογή σας για τα cookies — διατηρείται σε κάθε περίπτωση, καθώς απαιτείται για να τηρηθεί η προτίμησή σας."
+      },
+      "retention": {
+        "title": "Για πόσο διάστημα διατηρούμε τις πληροφορίες σας;",
+        "body": "Διατηρούμε τα προσωπικά σας δεδομένα μόνο για όσο διάστημα είναι απαραίτητο για την εκπλήρωση των σκοπών για τους οποίους τα συλλέξαμε. Αιτήματα που δεν καταλήγουν σε ενεργή επιχειρηματική σχέση διαγράφονται με ασφάλεια μετά από 6 μήνες. Εάν γίνετε πελάτης μας, τα δεδομένα σας θα διατηρηθούν για όσο διαρκεί η συνεργασία μας και όπως απαιτείται από την ελληνική φορολογική και εμπορική νομοθεσία."
+      },
+      "security": {
+        "title": "Πώς προστατεύουμε τις πληροφορίες σας;",
+        "body": "Η Moose Software Solutions Ε.Ε. ενεργεί ως ο κύριος υπεύθυνος επεξεργασίας δεδομένων. Εφαρμόζουμε κατάλληλα τεχνικά και οργανωτικά μέτρα ασφαλείας, ώστε τα προσωπικά σας δεδομένα να προστατεύονται από μη εξουσιοδοτημένη πρόσβαση, απώλεια ή κακή χρήση σε όλη τη διάρκεια του κύκλου ζωής τους."
+      },
+      "rights": {
+        "title": "Ποια είναι τα δικαιώματά σας;",
+        "body": "Βάσει του ΓΚΠΔ, έχετε το δικαίωμα να ζητήσετε αντίγραφα των προσωπικών σας δεδομένων, τη διόρθωση τυχόν ανακριβών ή ελλιπών πληροφοριών, ή τη διαγραφή των προσωπικών σας δεδομένων υπό ορισμένες προϋποθέσεις. Μπορείτε επίσης να ανακαλέσετε τη συγκατάθεσή σας οποιαδήποτε στιγμή, χωρίς να θίγεται η νομιμότητα της επεξεργασίας που βασίστηκε στη συγκατάθεση πριν από την ανάκλησή της."
+      },
+      "contact": {
+        "title": "Πώς μπορείτε να επικοινωνήσετε μαζί μας για αυτή την πολιτική;",
+        "intro": "Εάν έχετε οποιαδήποτε ερώτηση ή επιθυμείτε να ασκήσετε τα δικαιώματά σας σχετικά με την προστασία δεδομένων, μπορείτε να επικοινωνήσετε μαζί μας με τους παρακάτω τρόπους:",
+        "emailBefore": "Με email στο ",
+        "emailAfter": ".",
+        "mail": "Ταχυδρομικά, στην έδρα της εταιρείας μας: Λεωφόρος Κηφισίας 44, Μαρούσι 151 25, Αθήνα.",
+        "response": "Απαντάμε σε κάθε επίσημο αίτημα σχετικά με τα δικαιώματα των δεδομένων σας εντός ενός μηνός."
+      }
     },
     "cookies": {
       "title": "Σεβόμαστε το απόρρητό σας",

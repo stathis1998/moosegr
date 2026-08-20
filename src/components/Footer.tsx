@@ -19,7 +19,7 @@ export function Footer() {
             {menuLinks.map((id) => (
               <a
                 key={id}
-                href={`#${id}`}
+                href={`/#${id}`}
                 className={`hover:text-brand-300 transition-colors ${focusRing}`}
               >
                 {t.nav[id]}
@@ -39,7 +39,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className={`hover:text-white transition-colors ${focusRing}`}
           >
-            Privacy Policy
+            {t.footer.privacy}
           </a>
           <span className="text-brand-300/80">
             MOOSE SOFTWARE SOLUTIONS Ε.Ε. · ΑΦΜ EL803018698 · Λεωφ. Κηφισίας 44,
