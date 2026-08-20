@@ -1,10 +1,5 @@
 {
   "en": {
-    "meta": {
-      "title": "Moose Software Solutions — Custom Web Apps, E-shops & CRMs",
-      "description": "Moose Software Solutions builds high-performance web applications, custom Shopify e-shops, and tailored CRMs for forward-thinking companies. Based in Athens, Greece.",
-      "ogDescription": "High-performance web apps, custom Shopify e-shops, and tailored CRMs for forward-thinking companies."
-    },
     "nav": {
       "services": "Services",
       "process": "Process",
@@ -34,9 +29,9 @@
         "title": "Web Applications",
         "description": "Empower your business with lightning-fast, scalable web apps built just for you.",
         "items": [
-          "Intuitive, user-centric interfaces",
-          "Optimized for maximum performance",
-          "Custom features engineered for your workflows"
+          "Intuitive, user-centric interfaces.",
+          "Optimized for maximum performance.",
+          "Custom features engineered for your workflows."
         ],
         "imageAlt": "A woman working at a computer screen"
       },
@@ -44,9 +39,9 @@
         "title": "Custom E-shops",
         "description": "Turn visitors into loyal customers. With Shopify, we build seamless, high-converting e-commerce experiences tailored to your brand.",
         "items": [
-          "Custom theme development and seamless API integrations",
-          "Frictionless, high-converting checkout flows",
-          "Easy-to-manage inventory and admin dashboards"
+          "Custom theme development and seamless API integrations.",
+          "Frictionless, high-converting checkout flows.",
+          "Easy-to-manage inventory and admin dashboards."
         ],
         "imageAlt": "A Shopify storefront open on a laptop"
       },
@@ -54,9 +49,9 @@
         "title": "Tailored CRMs",
         "description": "Ditch rigid software. Automate your daily operations with a CRM mapped perfectly to your needs.",
         "items": [
-          "Automated routing aligned with your actual processes",
-          "Centralized, secure customer data hubs",
-          "Zero bloatware or unnecessary features"
+          "Automated routing aligned with your actual processes.",
+          "Centralized, secure customer data hubs.",
+          "Zero bloatware or unnecessary features."
         ],
         "imageAlt": "A woman holding a coffee while reviewing customer records"
       }
@@ -89,39 +84,39 @@
       "description": "We don't just write code; we build scalable software that solves real business bottlenecks. Here is a look at some of our recent partnerships.",
       "projects": {
         "shipping": {
-          "title": "PrimeNav Maritime Platform",
+          "title": "Real-Time Route & Cargo Tracking for Maritime Operations",
           "description": "Partnering with an enterprise Java backend team, we engineered the complex frontend architecture for a global maritime logistics application. The web app provides an intuitive interface for tracking international shipping routes, cargo manifests, and real-time weather data."
         },
         "ecommerce": {
-          "title": "Retail E-commerce",
+          "title": "Automating Bulk Operations for Shopify Retail",
           "description": "We transformed a clunky, underperforming legacy website into a seamless, highly-customized Shopify experience. To eliminate their biggest operational bottleneck, we engineered proprietary software to automate their massive bulk product uploads, saving the client hundreds of hours of manual data entry."
         },
         "veterinary": {
-          "title": "Veterinary Medical CRM",
+          "title": "Centralized Patient Management for Veterinary Networks",
           "description": "Designed and developed a secure, centralized management system currently utilized by veterinary clinics across Athens. The portal allows medical professionals to seamlessly upload, track, and manage complex diagnostic results and patient files in real-time."
         }
       }
     },
     "cta": {
       "title": "Let’s Talk",
-      "description": "Finding the best solution for you is our priority.",
+      "description": "Free 30-minute consultation. No obligations.",
       "button": "Get a Free Consultation"
     },
     "contact": {
       "eyebrow": "Contact Us",
-      "title": "Chat to our friendly team",
+      "title": "Chat to our team",
       "description": "We’d love to hear from you. Please fill out this form or shoot us an email.",
       "emailTitle": "Email",
-      "emailDescription": "Our friendly team is here to help.",
+      "emailDescription": "We typically reply within 24 hours. No spam, ever.",
       "phoneTitle": "Phone",
-      "phoneDescription": "Mon-Fri from 8am to 5pm.",
+      "phoneDescription": "Mon-Fri from 08:00 to 20:00.",
       "form": {
         "firstName": "First name",
         "lastName": "Last name",
         "email": "Email",
         "message": "Message",
         "messagePlaceholder": "Leave us a message...",
-        "privacyBefore": "You agree to our friendly",
+        "privacyBefore": "I agree to the",
         "privacyLink": "privacy policy",
         "privacyAfter": ".",
         "submit": "Send message",
@@ -148,7 +143,7 @@
       "leadAfter": " is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and protect the information you provide when you submit a request through the contact form on our website.",
       "collect": {
         "title": "What information do we collect?",
-        "body": "When you use our contact form, we collect the following personal data: First and Last Name, Email Address, Phone Number, and any personal information you voluntarily include in the message field."
+        "body": "When you use our contact form, we collect the following personal data: First and Last Name, Email Address, and any personal information you voluntarily include in the message field."
       },
       "use": {
         "title": "How do we use your information?",
@@ -195,142 +190,137 @@
     }
   },
   "el": {
-    "meta": {
-      "title": "Moose Software Solutions — Custom Web Εφαρμογές, E-shops & CRM",
-      "description": "Η Moose Software Solutions δημιουργεί web εφαρμογές υψηλών επιδόσεων, custom Shopify e-shops και εξατομικευμένα CRM για επιχειρήσεις με όραμα. Με έδρα την Αθήνα.",
-      "ogDescription": "Web εφαρμογές υψηλών επιδόσεων, custom Shopify e-shops και εξατομικευμένα CRM για επιχειρήσεις με όραμα."
-    },
     "nav": {
       "services": "Υπηρεσίες",
       "process": "Διαδικασία",
-      "tech": "Τεχνολογίες",
-      "work": "Έργα",
+      "tech": "Tech Stack",
+      "work": "Επιλεγμένα Έργα",
       "contact": "Επικοινωνία",
       "openMenu": "Άνοιγμα μενού",
       "closeMenu": "Κλείσιμο μενού",
       "switchLanguage": "Αλλαγή γλώσσας, τρέχουσα γλώσσα"
     },
     "hero": {
-      "title": "Εξατομικευμένες Λύσεις Λογισμικού που Κλιμακώνονται",
-      "subtitleBefore": "Δημιουργούμε web εφαρμογές υψηλών επιδόσεων, ",
+      "title": "Εξατομικευμένο Λογισμικό που Κλιμακώνεται",
+      "subtitleBefore": "Αναπτύσσουμε web apps, ",
       "subtitleHighlight": "e-shops",
-      "subtitleAfter": " και CRM για επιχειρήσεις με όραμα.",
+      "subtitleAfter": " και CRM για επιχειρήσεις που ξεχωρίζουν.",
       "cta": "Ζητήστε Δωρεάν Συμβουλευτική"
     },
     "socialProof": {
-      "title": "Ενταχθείτε στις επιχειρήσεις που μας εμπιστεύτηκαν."
+      "title": "Επιχειρήσεις που μας εμπιστεύονται."
     },
     "features": {
       "eyebrow": "Βασικές Υπηρεσίες",
-      "title": "Τι Δημιουργούμε Για Εσάς",
-      "description": "Μετατρέπουμε τις προκλήσεις της επιχείρησής σας σε λειτουργικές, κλιμακώσιμες λύσεις λογισμικού, σχεδιασμένες να οδηγούν την ανάπτυξή σας.",
+      "title": "Τι Κατασκευάζουμε για Εσάς",
+      "description": "Εύχρηστες, επεκτάσιμες λύσεις λογισμικού που επιταχύνουν την ανάπτυξη της επιχείρησής σας.",
       "seeProjects": "Δείτε τα έργα μας",
       "web": {
-        "title": "Web Εφαρμογές",
-        "description": "Ενισχύστε την επιχείρησή σας με ταχύτατες, κλιμακώσιμες web εφαρμογές, φτιαγμένες αποκλειστικά για εσάς.",
+        "title": "Web Applications",
+        "description": "Αστραπιαία, επεκτάσιμα web apps, σχεδιασμένα αποκλειστικά για τις δικές σας ανάγκες.",
         "items": [
-          "Διαισθητικές διεπαφές με επίκεντρο τον χρήστη",
-          "Βελτιστοποιημένες για μέγιστη απόδοση",
-          "Λειτουργίες σχεδιασμένες για τις δικές σας ροές εργασίας"
+          "Καθαρός κώδικας για μέγιστη ταχύτητα και σταθερότητα.",
+          "Προσεγμένο UI/UX για άψογη εμπειρία χρήστη.",
+          "Προσωπική συνεργασία και ανάπτυξη χωρίς μεσάζοντες."
         ],
-        "imageAlt": "Γυναίκα που εργάζεται μπροστά σε οθόνη υπολογιστή"
+        "imageAlt": "Μια γυναίκα που εργάζεται μπροστά σε οθόνη υπολογιστή"
       },
       "eshop": {
-        "title": "Εξατομικευμένα E-shops",
-        "description": "Μετατρέψτε τους επισκέπτες σε πιστούς πελάτες. Με το Shopify, δημιουργούμε άψογες εμπειρίες ηλεκτρονικού εμπορίου υψηλής μετατροπής, προσαρμοσμένες στο brand σας.",
+        "title": "Custom E-shops",
+        "description": "Κατασκευάζουμε e-shops στο Shopify, με κορυφαία αισθητική και απόλυτη εστίαση στην αύξηση των πωλήσεών σας.",
         "items": [
-          "Ανάπτυξη custom theme και απρόσκοπτες ενσωματώσεις API",
-          "Ροές ολοκλήρωσης παραγγελίας χωρίς τριβές, υψηλής μετατροπής",
-          "Εύχρηστη διαχείριση αποθέματος και πίνακες ελέγχου"
+          "Στρατηγικός σχεδιασμός Shopify με στόχο τις πωλήσεις.",
+          "Γρήγορο και ομαλό checkout για τους πελάτες.",
+          "Εύκολη διαχείριση παραγγελιών, χωρίς απαιτήσεις τεχνικών γνώσεων."
         ],
-        "imageAlt": "Ηλεκτρονικό κατάστημα Shopify ανοιχτό σε laptop"
+        "imageAlt": "Ένα e-shop του Shopify ανοιχτό σε φορητό υπολογιστή"
       },
       "crm": {
-        "title": "Εξατομικευμένα CRM",
-        "description": "Ξεχάστε το άκαμπτο λογισμικό. Αυτοματοποιήστε τις καθημερινές σας λειτουργίες με ένα CRM απόλυτα προσαρμοσμένο στις ανάγκες σας.",
+        "title": "Custom CRM",
+        "description": "Αυτοματοποιήστε την καθημερινότητά σας με ένα CRM χτισμένο αποκλειστικά για τις δικές σας διαδικασίες.",
         "items": [
-          "Αυτοματοποιημένη δρομολόγηση, ευθυγραμμισμένη με τις πραγματικές σας διαδικασίες",
-          "Κεντρικοποιημένα, ασφαλή κέντρα δεδομένων πελατών",
-          "Χωρίς περιττές λειτουργίες ή bloatware"
+          "Στοχευμένοι αυτοματισμοί για εξοικονόμηση καθημερινού χρόνου.",
+          "Ασφαλής ψηφιοποίηση δεδομένων σε ένα κεντρικό περιβάλλον.",
+          "Εύχρηστο λογισμικό ουσίας, χωρίς περιττά χαρακτηριστικά (bloatware)."
         ],
-        "imageAlt": "Γυναίκα με καφέ που εξετάζει αρχεία πελατών"
+        "imageAlt": "Μια γυναίκα που κρατάει καφέ ενώ ελέγχει αρχεία πελατών"
       }
     },
     "metrics": {
-      "eyebrow": "Η Διαδικασία Μας",
-      "title": "Πώς Δίνουμε Ζωή στις Ιδέες",
-      "description": "Μια διαφανής, βελτιστοποιημένη προσέγγιση από τη σύλληψη έως την υλοποίηση.",
+      "eyebrow": "Η Διαδικασία μας",
+      "title": "Πώς Κάνουμε τις Ιδέες Πράξη",
+      "description": "Μια απόλυτα διαφανής διαδικασία, από την πρώτη ιδέα μέχρι το τελικό λανσάρισμα.",
       "plan": {
-        "title": "Μελέτη & Σχεδιασμός",
-        "description": "Εμβαθύνουμε στους επιχειρηματικούς σας στόχους για να χαράξουμε μια στρατηγική αρχιτεκτονική και έπειτα δημιουργούμε διαισθητικές διεπαφές με επίκεντρο τον χρήστη, πριν γράψουμε την πρώτη γραμμή κώδικα."
+        "title": "Σχεδιασμός & Μελέτη",
+        "description": "Αναλύουμε τους στόχους σας για να σχεδιάσουμε τη σωστή αρχιτεκτονική και ένα εύχρηστο UI/UX, πριν γράψουμε την πρώτη γραμμή κώδικα."
       },
       "build": {
-        "title": "Ανάπτυξη & Βελτίωση",
-        "description": "Γράφουμε καθαρό, ασφαλή κώδικα και σας κρατάμε ενήμερους με τακτικές ενημερώσεις, διαφανείς δοκιμές και ανασκοπήσεις οροσήμων."
+        "title": "Ανάπτυξη & Υλοποίηση",
+        "description": "Γράφουμε καθαρό, ασφαλή κώδικα. Διατηρούμε συνεχή επικοινωνία μαζί σας με τακτικά updates και ελέγχους (testing) σε κάθε ενδιάμεσο στάδιο."
       },
       "launch": {
-        "title": "Κυκλοφορία & Κλιμάκωση",
-        "description": "Αναλαμβάνουμε την απρόσκοπτη υλοποίηση του λογισμικού σας και παρέχουμε υποστήριξη μετά την κυκλοφορία, ώστε η εφαρμογή σας να αναπτύσσεται αβίαστα μαζί με την επιχείρησή σας."
+        "title": "Λανσάρισμα & Υποστήριξη",
+        "description": "Αναλαμβάνουμε το ομαλό λανσάρισμα του λογισμικού και παρέχουμε συνεχή τεχνική υποστήριξη, ώστε το σύστημα να εξελίσσεται μαζί με την επιχείρησή σας."
       }
     },
     "tech": {
-      "eyebrow": "Τεχνολογίες",
-      "title": "Με Σύγχρονη Τεχνολογία",
-      "description": "Χτίζουμε πάνω σε frameworks και υποδομές enterprise επιπέδου, ώστε το λογισμικό σας να είναι ασφαλές, κλιμακώσιμο και εξαιρετικά γρήγορο."
+      "eyebrow": "Tech Stack",
+      "title": "Με τη Δύναμη της Σύγχρονης Τεχνολογίας",
+      "description": "Αναπτύσσουμε με τα κορυφαία εργαλεία της αγοράς για απόλυτη ταχύτητα, ασφάλεια και επεκτασιμότητα."
     },
     "work": {
       "eyebrow": "Επιλεγμένα Έργα",
-      "title": "Λύσεις Μηχανικής για Κάθε Κλάδο",
-      "description": "Δεν γράφουμε απλώς κώδικα· χτίζουμε κλιμακώσιμο λογισμικό που λύνει πραγματικά επιχειρηματικά προβλήματα. Δείτε μερικές από τις πρόσφατες συνεργασίες μας.",
+      "title": "Λύσεις Λογισμικού για Κάθε Κλάδο",
+      "description": "Δεν γράφουμε απλώς κώδικα. Αναπτύσσουμε στοχευμένο λογισμικό που λύνει πραγματικά επιχειρηματικά προβλήματα. Δείτε μερικές από τις πρόσφατες συνεργασίες μας.",
       "projects": {
         "shipping": {
-          "title": "Ναυτιλιακή Πλατφόρμα PrimeNav",
-          "description": "Σε συνεργασία με μια enterprise ομάδα backend σε Java, σχεδιάσαμε τη σύνθετη αρχιτεκτονική frontend για μια παγκόσμια εφαρμογή ναυτιλιακής εφοδιαστικής. Η web εφαρμογή προσφέρει ένα διαισθητικό περιβάλλον για την παρακολούθηση διεθνών δρομολογίων, δηλωτικών φορτίου και δεδομένων καιρού σε πραγματικό χρόνο."
+          "title": "Αρχιτεκτονική Frontend για Παγκόσμια Συστήματα Logistics",
+          "description": "Σε συνεργασία με ομάδα backend, δημιουργήσαμε την απαιτητική frontend αρχιτεκτονική μιας παγκόσμιας εφαρμογής logistics. Προσφέρει ένα φιλικό περιβάλλον για την παρακολούθηση δρομολογίων, φορτίων και καιρικών δεδομένων σε πραγματικό χρόνο."
         },
         "ecommerce": {
-          "title": "Ηλεκτρονικό Κατάστημα Λιανικής",
-          "description": "Μετατρέψαμε έναν δυσλειτουργικό, παρωχημένο ιστότοπο σε μια άψογη, πλήρως εξατομικευμένη εμπειρία Shopify. Για να εξαλείψουμε το μεγαλύτερο λειτουργικό τους εμπόδιο, αναπτύξαμε ιδιόκτητο λογισμικό που αυτοματοποιεί τις μαζικές μεταφορτώσεις προϊόντων, γλιτώνοντας τον πελάτη από εκατοντάδες ώρες χειροκίνητης καταχώρησης δεδομένων."
+          "title": "Αυτοματισμοί Μαζικής Διαχείρισης για Retail E-commerce",
+          "description": "Μετατρέψαμε ένα αργό, παλιό e-shop σε μια σύγχρονη, custom εμπειρία στο Shopify. Για να λύσουμε το μεγαλύτερο λειτουργικό τους πρόβλημα, αναπτύξαμε αυτοματισμό μαζικής εισαγωγής προϊόντων, εξοικονομώντας εκατοντάδες ώρες χειροκίνητου data entry."
         },
         "veterinary": {
-          "title": "Κτηνιατρικό Ιατρικό CRM",
-          "description": "Σχεδιάσαμε και αναπτύξαμε ένα ασφαλές, κεντρικοποιημένο σύστημα διαχείρισης που χρησιμοποιείται σήμερα από κτηνιατρικές κλινικές σε όλη την Αθήνα. Η πύλη επιτρέπει στους επαγγελματίες υγείας να ανεβάζουν, να παρακολουθούν και να διαχειρίζονται σύνθετα διαγνωστικά αποτελέσματα και αρχεία ασθενών σε πραγματικό χρόνο."
+          "title": "Κεντρική Διαχείριση Ασθενών για Κτηνιατρικά Δίκτυα",
+          "description": "Σχεδιάσαμε ένα ασφαλές, κεντρικό σύστημα διαχείρισης, το οποίο χρησιμοποιείται ήδη από κλινικές στην Αθήνα. Επιτρέπει στους κτηνιάτρους να οργανώνουν εύκολα ιατρικούς φακέλους και πολύπλοκα διαγνωστικά αποτελέσματα σε πραγματικό χρόνο."
         }
       }
     },
     "cta": {
-      "title": "Ας Μιλήσουμε",
-      "description": "Η εύρεση της καλύτερης λύσης για εσάς είναι προτεραιότητά μας.",
+      "title": "Ας Συζητήσουμε",
+      "description": "Δωρεάν συμβουλευτική συνεδρία 30 λεπτών. Χωρίς υποχρεώσεις.",
       "button": "Ζητήστε Δωρεάν Συμβουλευτική"
     },
     "contact": {
       "eyebrow": "Επικοινωνία",
-      "title": "Μιλήστε με την ομάδα μας",
-      "description": "Θα χαρούμε να σας ακούσουμε. Συμπληρώστε αυτή τη φόρμα ή στείλτε μας ένα email.",
+      "title": "Στείλτε μας μήνυμα",
+      "description": "Θα χαρούμε να σας ακούσουμε. Συμπληρώστε τη φόρμα ή στείλτε μας email.",
       "emailTitle": "Email",
-      "emailDescription": "Η φιλική μας ομάδα είναι εδώ για να βοηθήσει.",
+      "emailDescription": "Θα απαντήσουμε εντός 24 ωρών. Χωρίς spam, ποτέ.",
       "phoneTitle": "Τηλέφωνο",
-      "phoneDescription": "Δευτέρα-Παρασκευή, 8:00 έως 17:00.",
+      "phoneDescription": "Δευτέρα έως Παρασκευή, 08:00 - 20:00.",
       "form": {
         "firstName": "Όνομα",
         "lastName": "Επώνυμο",
         "email": "Email",
         "message": "Μήνυμα",
-        "messagePlaceholder": "Αφήστε μας ένα μήνυμα...",
-        "privacyBefore": "Συμφωνείτε με την ",
+        "messagePlaceholder": "Αφήστε μας το μήνυμά σας...",
+        "privacyBefore": "Συμφωνώ με την ",
         "privacyLink": "πολιτική απορρήτου",
-        "privacyAfter": " μας.",
+        "privacyAfter": ".",
         "submit": "Αποστολή μηνύματος",
         "submitting": "Αποστολή…"
       },
       "status": {
-        "privacyRequired": "Παρακαλούμε συμφωνήστε με την πολιτική απορρήτου πριν την υποβολή.",
-        "success": "Ευχαριστούμε για την επικοινωνία! Το μήνυμά σας στάλθηκε — θα επικοινωνήσουμε μαζί σας σύντομα.",
-        "genericError": "Κάτι πήγε στραβά. Παρακαλούμε δοκιμάστε ξανά.",
+        "privacyRequired": "Παρακαλώ συμφωνήστε με την πολιτική απορρήτου πριν την υποβολή.",
+        "success": "Ευχαριστούμε! Το μήνυμά σας εστάλη — θα επικοινωνήσουμε μαζί σας σύντομα.",
+        "genericError": "Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.",
         "networkError": "Δεν ήταν δυνατή η σύνδεση με τον διακομιστή. Δοκιμάστε ξανά ή στείλτε μας email απευθείας."
       }
     },
     "footer": {
-      "copyright": "© 2026 Moose Software Solutions. Με επιφύλαξη παντός δικαιώματος.",
+      "copyright": "© 2026 Moose Software Solutions. All rights reserved.",
       "privacy": "Πολιτική Απορρήτου"
     },
     "privacy": {
@@ -343,7 +333,7 @@
       "leadAfter": " δεσμεύεται να προστατεύει τα προσωπικά σας δεδομένα. Η παρούσα Πολιτική Απορρήτου εξηγεί πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τις πληροφορίες που παρέχετε όταν υποβάλλετε ένα αίτημα μέσω της φόρμας επικοινωνίας στον ιστότοπό μας.",
       "collect": {
         "title": "Ποιες πληροφορίες συλλέγουμε;",
-        "body": "Όταν χρησιμοποιείτε τη φόρμα επικοινωνίας μας, συλλέγουμε τα ακόλουθα προσωπικά δεδομένα: όνομα και επώνυμο, διεύθυνση email, αριθμό τηλεφώνου, καθώς και όποια προσωπική πληροφορία συμπεριλάβετε οικειοθελώς στο πεδίο του μηνύματος."
+        "body": "Όταν χρησιμοποιείτε τη φόρμα επικοινωνίας μας, συλλέγουμε τα ακόλουθα προσωπικά δεδομένα: όνομα και επώνυμο, διεύθυνση email, καθώς και όποια προσωπική πληροφορία συμπεριλάβετε οικειοθελώς στο πεδίο του μηνύματος."
       },
       "use": {
         "title": "Πώς χρησιμοποιούμε τις πληροφορίες σας;",
@@ -382,8 +372,8 @@
       }
     },
     "cookies": {
-      "title": "Σεβόμαστε το απόρρητό σας",
-      "description": "Χρησιμοποιούμε cookies για να κατανοήσουμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπό μας και να βελτιώσουμε την εμπειρία σας. Μπορείτε να αποδεχτείτε ή να απορρίψετε τα cookies ανάλυσης.",
+      "title": "Εκτιμούμε το απόρρητό σας",
+      "description": "Χρησιμοποιούμε cookies για να καταλάβουμε πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπό μας και να βελτιώσουμε την εμπειρία σας. Μπορείτε να αποδεχτείτε ή να απορρίψετε τα cookies ανάλυσης.",
       "privacyLink": "Πολιτική Απορρήτου",
       "accept": "Αποδοχή",
       "decline": "Απόρριψη"
