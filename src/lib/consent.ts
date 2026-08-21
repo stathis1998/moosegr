@@ -1,8 +1,9 @@
 /**
  * Cookie-consent state shared between the banner and the Consent Mode
- * bootstrap in index.html. The stored value is read by the inline head
+ * bootstrap in Base.astro. The stored value is read by the inline head
  * script on every page load, so the key and values must stay in sync
- * with it.
+ * with it. Consent updates go through the gtag() helper; GTM picks them
+ * up from the shared dataLayer and applies them to every tag it manages.
  */
 
 import "@/lib/analytics";

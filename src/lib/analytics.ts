@@ -1,12 +1,16 @@
 /**
- * Type-safe wrapper around the Google gtag.js snippet loaded in
- * Base.astro (GA4 + Google Ads). Every call no-ops safely when gtag is
- * missing — ad blockers, or the server-side prerender pass — so analytics
- * can never break the page.
+ * Thin wrapper around the Google Tag Manager dataLayer created in
+ * Base.astro. GA4 and Google Ads are configured inside the GTM container
+ * (GTM-T4JVVFKQ), so this module only pushes events — the tags, triggers
+ * and conversion labels live in GTM. Every call no-ops safely when the
+ * dataLayer is missing — ad blockers, or the server-side prerender pass —
+ * so analytics can never break the page.
  */
 
 declare global {
   interface Window {
+    dataLayer?: unknown[];
+    /** Consent Mode helper defined in Base.astro; only used for consent updates. */
     gtag?: (...args: unknown[]) => void;
   }
 }
@@ -18,30 +22,27 @@ interface LeadUserData {
 }
 
 /**
- * Reports a lead to GA4 as the recommended `generate_lead` event. `method`
- * distinguishes how the visitor reached out so a single key event can be
- * segmented in reports (form submit vs. email/phone click).
+ * Reports a lead by pushing a `generate_lead` event to the dataLayer.
+ * `lead_method` distinguishes how the visitor reached out so a single key
+ * event can be segmented in reports (form submit vs. email/phone click).
+ *
+ * GTM wiring (custom-event trigger `generate_lead`):
+ *   - GA4 event tag `generate_lead` with parameter `method` = {{lead_method}}.
+ *   - Google Ads conversion tag AW-18369329164 / ywsSCMTzotscEIzwlrdE
+ *     (value 1, EUR), with enhanced conversions reading {{user_data}}.
  *
  * Pass `userData` when the visitor's own details are known (form submits):
- * the Google tag hashes them client-side and sends them with the conversion
+ * the Ads tag hashes them client-side and sends them with the conversion
  * for enhanced conversions. Email/phone *clicks* carry no visitor data, so
- * those leads are tracked without it.
+ * `user_data` is explicitly reset to keep a stale value from an earlier
+ * form submit out of later events.
  */
 export function trackLead(method: LeadMethod, userData?: LeadUserData): void {
-  // Enhanced conversions: user_data must be set before the conversion event
-  // fires. gtag normalizes and SHA-256 hashes the value before transmission.
   const email = userData?.email?.trim().toLowerCase();
-  if (email) {
-    window.gtag?.("set", "user_data", { email });
-  }
 
-  window.gtag?.("event", "generate_lead", { method });
-
-  // Google Ads conversion. All lead methods share the "Submit lead form"
-  // action for now — split into per-method actions once they exist in Ads.
-  window.gtag?.("event", "conversion", {
-    send_to: "AW-18369329164/ywsSCMTzotscEIzwlrdE",
-    value: 1.0,
-    currency: "EUR",
+  window.dataLayer?.push({
+    event: "generate_lead",
+    lead_method: method,
+    user_data: email ? { email } : undefined,
   });
 }

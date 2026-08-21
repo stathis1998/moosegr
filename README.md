@@ -38,8 +38,10 @@ Language is part of the URL; each page is prerendered per locale with proper
 
 - `src/pages/` — one `.astro` file per URL (thin wrappers around shared shells).
 - `src/components/HomePage.astro`, `PrivacyShell.astro` — per-locale page shells.
-- `src/layouts/Base.astro` — `<head>` (meta, OG, hreflang, JSON-LD, gtag +
-  Consent Mode bootstrap).
+- `src/layouts/Base.astro` — `<head>` (meta, OG, hreflang, JSON-LD, Consent
+  Mode bootstrap + GTM container `GTM-T4JVVFKQ`). GA4 and Google Ads tags are
+  configured in GTM, not in code; `src/lib/analytics.ts` only pushes
+  dataLayer events.
 - `src/components/` — React sections (`Hero`, `Features`, `Metrics`, `TechStack`,
   `Work`, `CTASection`, `ContactUs`, `Footer`) + shared `SectionHeader` and
   `ui/` primitives. Sections take a `locale` prop; only `Hero`, `SocialProof`,
